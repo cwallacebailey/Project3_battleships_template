@@ -123,3 +123,18 @@ def check_hit_or_miss(self, row, col, board, update_board):
         print(ascii_lose)
         time.sleep(3)
         Intro()
+
+    def end_game_win():
+        """
+        plays losing sequence
+        """
+        print(ascii_game)
+        time.sleep(0.5)
+        print(ascii_over)
+        time.sleep(0.5)
+        display_clear()
+        print(ascii_you)
+        time.sleep(0.5)
+        print(ascii_win)
+        time.sleep(3)
+        Intro()
