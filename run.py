@@ -1,14 +1,12 @@
 import random, time, sys
 from com.tool_functions import display_clear
-from com.board import *
+from board import *
 from com.ascii import *
 from intro import *
 
 user_board = CreateBoard().board
 computer_board = CreateBoard().board
 guess_board = CreateBoard().hidden_board
-user_ships = CreateBoard().ships_to_place
-computer_ships = CreateBoard().ships_to_place
 
 class Play_Game:
 
@@ -63,9 +61,9 @@ class Play_Game:
         if not, passes guess to check_hit_or_miss
         if it has been guessed before computer_guess is called again
         """
-        if board[row][col] == "\U0001f30a":
+        if board[row][col] == chr(9410):
             self.computer_guess()
-        elif board[row][col] == "\U0001f525":
+        elif board[row][col] == chr(128369):
             self.computer_guess()
         else: 
             self.computer_check_hit_or_miss(self.com_row, self.com_col, self.user_board, self.user_board)
@@ -75,11 +73,11 @@ class Play_Game:
         Checks if a ship is at the guess location
         """
         print("checking guess")
-        if board[row][col] == "\U0001f30a":
+        if board[row][col] == chr(9410):
             display_clear()
             print("We've shot there before, try another coordinate")
             self.take_guess()
-        elif board[row][col] == "\U0001f525":
+        elif board[row][col] == chr(128369):
             display_clear()
             print("We've shot there before, try another coordinate")
             self.take_guess()
@@ -91,8 +89,8 @@ class Play_Game:
         Checks if a ship is at the user guess coordinates
         """
         display_clear()
-        if board[row][col] == "\U0001f6a2":
-            update_board[row][col] = "\U0001f525"
+        if board[row][col] != chr(128911):
+            update_board[row][col] = chr(128369)
             print("direct hit, well done")
 
             self.computer_ships -= 1
@@ -105,7 +103,7 @@ class Play_Game:
             else:
                 self.computer_guess()
         else:
-            update_board[row][col] = "\U0001f30a"
+            update_board[row][col] = chr(9410)
             print("Miss")
             self.computer_guess()
 
@@ -117,8 +115,8 @@ class Play_Game:
         print("They're getting ready to shoot!!")
         time.sleep(0.5)
         display_clear()
-        if board[row][col] == "\U0001f6a2":
-            update_board[row][col] = '\U0001f525'
+        if board[row][col] != chr(128911):
+            update_board[row][col] = chr(128369)
             print("                    One of our ships has been destroyed!")
 
             self.user_ships -= 1
@@ -131,7 +129,7 @@ class Play_Game:
             else:
                 self.take_guess()
         else:
-            update_board[row][col] = "\U0001f30a"
+            update_board[row][col] = chr(9410)
             print("                    They missed us!! Carry on lads!")
             self.take_guess()
 
