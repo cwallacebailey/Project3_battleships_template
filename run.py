@@ -29,7 +29,7 @@ class PlayGame():
         self.guess_board = guess_board
         self.com_row = None
         self.com_col = None
-        self.TakeGuess = self.take_guess()
+        self.take_user_guess = self.take_guess()
 
     def display(self):
         """
@@ -55,6 +55,7 @@ class PlayGame():
         self.row = int(self.row) - 1
         self.col = int(self.col) - 1
         self.check_guess(self.row, self.col, self.guess_board)
+        return(self.row, self.col)
 
     def computer_guess(self):
         """
@@ -81,7 +82,8 @@ class PlayGame():
         elif board[row][col] == chr(128369):
             self.computer_guess()
         else:
-            self.computer_check_hit(self.com_row, self.com_col, self.user_board)
+            self.computer_check_hit(self.com_row, self.com_col,
+                                    self.user_board, self.user_board)
 
     def check_guess(self, row, col, board):
         """
@@ -97,9 +99,10 @@ class PlayGame():
             print("We've shot there before, try another coordinate")
             self.take_guess()
         else:
-            self.check_hit(self.row, self.col, self.computer_board, self.guess_board)
+            self.check_hit(self.row, self.col, self.computer_board,
+                           self.guess_board)
 
-    def check_hi(self, row, col, board, update_board):
+    def check_hit(self, row, col, board, update_board):
         """
         Checks if a ship is at the user guess coordinates
         """

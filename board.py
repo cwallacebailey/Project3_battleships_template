@@ -30,9 +30,9 @@ class CreateBoard():
         To board ships will be added and visible
         hidden_board is created for the user to guess
         """
-        bs = self.board_size
-        self.hidden_board = [["." for _ in range(bs)] for _ in range(bs)]
-        self.board = [["." for _ in range(bs)] for _ in range(bs)]
+        i = self.board_size
+        self.hidden_board = [["." for _ in range(i)] for _ in range(i)]
+        self.board = [["." for _ in range(i)] for _ in range(i)]
         return self.board, self.hidden_board
 
     def ship_direction(self):
@@ -119,7 +119,7 @@ class CreateBoard():
             self.ship_length_array_item += 2
             self.ship_display_array_item += 2
             self.coordinate()
-        return(self.board)
+        return(self.board)  # added to prevent error
 
 
 class BoardFormat():
@@ -138,7 +138,7 @@ class BoardFormat():
         """
         Converts the board given into a usable appearance
         """
-        print("      1 2 3 4 5 6 7 8   "*2)
+        print("      ", "1 2 3 4 5 6 7 8   "*2)
         print(" "*6 + "— "*8 + " "*4 + "— "*8)
         for i, (col, row) in enumerate(zip(board1, board2)):
             print(
