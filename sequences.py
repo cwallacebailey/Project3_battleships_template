@@ -144,7 +144,7 @@ class Intro():
         print(ASCII_SHIPS)
         input("Hit any key to continue \n")
         display_clear()
-        #  PlayGame()
+        # PlayGame()
 
     def rules(self):
         """

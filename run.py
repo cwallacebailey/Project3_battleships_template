@@ -6,7 +6,8 @@ import random
 import time
 from tool_functions import display_clear
 from board import CreateBoard, BoardFormat
-from ascii import ASCII_GAME, ASCII_OVER, ASCII_YOU, ASCII_LOSE, ASCII_WIN
+from sequences import end_game_win, end_game_lose
+
 
 user_board = CreateBoard().board
 computer_board = CreateBoard().board
@@ -80,7 +81,7 @@ class PlayGame():
         elif board[row][col] == chr(128369):
             self.computer_guess()
         else:
-            self.computer_check_hit_or_miss(self.com_row, self.com_col, self.user_board, self.user_board)
+            self.computer_check_hit(self.com_row, self.com_col, self.user_board)
 
     def check_guess(self, row, col, board):
         """
@@ -96,9 +97,9 @@ class PlayGame():
             print("We've shot there before, try another coordinate")
             self.take_guess()
         else:
-            self.check_hit_or_miss(self.row, self.col, self.computer_board, self.guess_board)
+            self.check_hit(self.row, self.col, self.computer_board, self.guess_board)
 
-    def check_hit_or_miss(self, row, col, board, update_board):
+    def check_hi(self, row, col, board, update_board):
         """
         Checks if a ship is at the user guess coordinates
         """
@@ -112,7 +113,7 @@ class PlayGame():
             if self.computer_ships == 0:
                 print("Its Over")
                 time.sleep(5)
-                self.end_game_win()
+                end_game_win()
 
             else:
                 self.computer_guess()
@@ -121,7 +122,7 @@ class PlayGame():
             print("Miss")
             self.computer_guess()
 
-    def computer_check_hit_or_miss(self, row, col, board, update_board):
+    def computer_check_hit(self, row, col, board, update_board):
         """
         Checks if a ship is at the computer guess coordinates
         """
@@ -138,7 +139,7 @@ class PlayGame():
             if self.user_ships == 0:
                 print("                     That was their last ship!!")
                 time.sleep(5)
-                self.end_game_lose()
+                end_game_lose()
 
             else:
                 self.take_guess()
@@ -146,4 +147,3 @@ class PlayGame():
             update_board[row][col] = chr(9410)
             print("                    They missed us!! Carry on lads!")
             self.take_guess()
-
