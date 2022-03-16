@@ -108,3 +108,18 @@ def check_hit_or_miss(self, row, col, board, update_board):
             update_board[row][col] = "\U0001f30a"
             print("                    They missed us!! Carry on lads!")
             self.take_guess()
+
+   def end_game_lose():
+        """
+        plays losing sequence
+        """
+        print(ascii_game)
+        time.sleep(0.5)
+        print(ascii_over)
+        time.sleep(0.5)
+        display_clear()
+        print(ascii_you)
+        time.sleep(0.5)
+        print(ascii_lose)
+        time.sleep(3)
+        Intro()
