@@ -52,3 +52,14 @@ class ship_placement:
                 temp_coordinates.append(str(row) + str(col + x))
                 x += 1
         self.array_check(temp_coordinates, self.symbol)
+
+    def array_check(self, temp_coordinates, symbol):
+        if any(i in temp_coordinates for i in self.array): #https://stackoverflow.com/questions/36190533/python-check-if-an-numpy-array-contains-any-element-of-another-array
+            self.coordinate(self.length)
+        else:
+            for i in temp_coordinates:
+                self.array.append(i)
+            for i in temp_coordinates:
+                row = int(i[:1])
+                col = int(i[1:])
+                self.board[row][col] = self.symbol
