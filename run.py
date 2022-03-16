@@ -1,8 +1,12 @@
+"""
+Main run file
+"""
+
 import random
 import time
-from com.tool_functions import display_clear
-from board import *
-from com.ascii import *
+from tool_functions import display_clear
+from board import CreateBoard
+from ascii import *
 from intro import *
 
 user_board = CreateBoard().board
@@ -139,14 +143,14 @@ class playGame:
         """
         plays losing sequence
         """
-        print(ascii_game)
+        print(ASCII_GAME)
         time.sleep(0.5)
-        print(ascii_over)
+        print(ASCII_OVER)
         time.sleep(0.5)
         display_clear()
-        print(ascii_you)
+        print(ASCII_YOU)
         time.sleep(0.5)
-        print(ascii_lose)
+        print(ASCII_LOSE)
         time.sleep(3)
         Intro()
 
@@ -155,14 +159,14 @@ class playGame:
         """
         plays losing sequence
         """
-        print(ascii_game)
+        print(ASCII_GAME)
         time.sleep(0.5)
-        print(ascii_over)
+        print(ASCII_OVER)
         time.sleep(0.5)
         display_clear()
-        print(ascii_you)
+        print(ASCII_YOU)
         time.sleep(0.5)
-        print(ascii_win)
+        print(ASCII_WIN)
         time.sleep(3)
         Intro()
 

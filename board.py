@@ -13,14 +13,13 @@ class CreateBoard():
     def __init__(self):
         self.ships = [4, chr(8517), 3, chr(8486), 3, chr(8492), 2, chr(8497)]
         self.number_of_ships = int(len(self.ships)/2)
-        self.hidden_board = self.hidden_board
-        self.board = self.board
         self.board_size = 8
-        self.x = 0
-        self.y = 1
+        self.length = 0
+        self.ship_length_array_item = 0
+        self.ship_display_array_item = 1
         self.array = []
-        self.build_board = self.build_board()
-        self.run = self.run()
+        self.build = self.build_board()
+        self.start = self.run()
 
     def build_board(self):
         """
@@ -28,8 +27,9 @@ class CreateBoard():
         To board ships will be added and visible
         hidden_board is created for the user to guess
         """
-        self.hidden_board = [[chr(128911) for _ in range(self.board_size)] for _ in range(self.board_size)]
-        self.board = [[chr(128911) for _ in range(self.board_size)] for _ in range(self.board_size)]
+        bs = self.board_size
+        self.hidden_board = [["." for _ in range(bs)] for _ in range(bs)]
+        self.board = [["." for _ in range(bs)] for _ in range(bs)]
         return self.board, self.hidden_board
 
     def ship_direction(self):
@@ -62,12 +62,12 @@ class CreateBoard():
         """
         if direction:
             if (row + self.length) > (self.board_size - 1):
-                self.coordinate(self.length)
+                self.coordinate()
             else:
                 self.coordinate_check(row, col, direction)
         else:
             if (col + self.length) > (self.board_size - 1):
-                self.coordinate(self.length)
+                self.coordinate()
             else:
                 self.coordinate_check(row, col, direction)
 
@@ -78,15 +78,15 @@ class CreateBoard():
         are already in use
         """
         temp_coordinates = []
-        x = 1
+        i = 1
         if direction:
             for _ in range(self.length):
-                temp_coordinates.append(str(row + x) + str(col))
-                x += 1
+                temp_coordinates.append(str(row + i) + str(col))
+                i += 1
         else:
             for _ in range(self.length):
-                temp_coordinates.append(str(row) + str(col + x))
-                x += 1
+                temp_coordinates.append(str(row) + str(col + i))
+                i += 1
         self.array_check(temp_coordinates)
 
     def array_check(self, temp_coordinates):
@@ -96,7 +96,7 @@ class CreateBoard():
         """
         # https://stackoverflow.com/questions/36190533/python-check-if-an-numpy-array-contains-any-element-of-another-array
         if any(i in temp_coordinates for i in self.array):
-            self.coordinate(self.length)
+            self.coordinate()
         else:
             for i in temp_coordinates:
                 self.array.append(i)
@@ -111,11 +111,12 @@ class CreateBoard():
         placing them on the board one after another
         """
         for _ in range(self.number_of_ships):
-            self.length = self.ships[self.x]
-            self.symbol = self.ships[self.y]
-            self.x += 2
-            self.y += 2
-            self.coordinate(self.length)
+            self.length = self.ships[self.ship_length_array_item]
+            self.symbol = self.ships[self.ship_display_array_item]
+            self.ship_length_array_item += 2
+            self.ship_display_array_item += 2
+            self.coordinate()
+        return(self.board)
 
 
 class BoardFormat():
@@ -128,7 +129,7 @@ class BoardFormat():
     def __init__(self, board1, board2):
         self.board1 = board1
         self.board2 = board2
-        self.board_formatting = self.board_formatting(board1, board2)
+        self.board_format = self.board_formatting(board1, board2)
 
     def board_formatting(self, board1, board2):
         """
@@ -175,3 +176,4 @@ class BoardFormat():
                 (i + 1)
             )
         print("\n", " "*3, "   Enemy Ships     ", " "*1, "   Our Ships     ")
+        return board1, board2
