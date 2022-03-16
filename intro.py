@@ -149,4 +149,3 @@ class Intro:
             time.sleep(0.8)
             self.battle_ship_animation()
 
-Intro()
