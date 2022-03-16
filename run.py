@@ -1,6 +1,23 @@
 import random, time, sys
 
-def take_guess(self):
+class Play_Game:
+
+    def __init__(self):
+        self.user_ships = 6
+        self.computer_ships = 6
+        self.board_size = 8
+        self.user_board = user_board
+        self.computer_board = computer_board
+        self.guess_board = guess_board
+        self.take_guess = self.take_guess()
+
+    def display(self):
+        """
+        prints the board for the user to see
+        """
+        board_format(self.user_board, self.guess_board)
+
+    def take_guess(self):
         """
         prompts the user to make a guess
         Takes the input from the user as coordinates
@@ -19,7 +36,7 @@ def take_guess(self):
         self.col = int(self.col) - 1
         self.check_guess(self.row, self.col, self.guess_board)
 
-def computer_guess(self):
+    def computer_guess(self):
         """
         Creates a random guess for the computer
         passes guess to a check that the guess -
@@ -29,9 +46,21 @@ def computer_guess(self):
         self.com_row = int(self.com_row)
         self.com_col = int(self.com_col)
         self.computer_check_guess(self.com_row, self.com_col, self.user_board)
+    
+    def computer_check_guess(self, row, col, board):
+        """
+        Ensures the guess has not been made before
+        if not, passes guess to check_hit_or_miss
+        if it has been guessed before computer_guess is called again
+        """
+        if board[row][col] == "\U0001f30a":
+            self.computer_guess()
+        elif board[row][col] == "\U0001f525":
+            self.computer_guess()
+        else: 
+            self.computer_check_hit_or_miss(self.com_row, self.com_col, self.user_board, self.user_board)
 
-
-def check_guess(self, row, col, board):
+    def check_guess(self, row, col, board):
         """
         Checks if a ship is at the guess location
         """
@@ -47,20 +76,7 @@ def check_guess(self, row, col, board):
         else: 
             self.check_hit_or_miss(self.row, self.col, self.computer_board, self.guess_board)
 
-def computer_check_guess(self, row, col, board):
-        """
-        Ensures the guess has not been made before
-        if not, passes guess to check_hit_or_miss
-        if it has been guessed before computer_guess is called again
-        """
-        if board[row][col] == "\U0001f30a":
-            self.computer_guess()
-        elif board[row][col] == "\U0001f525":
-            self.computer_guess()
-        else: 
-            self.computer_check_hit_or_miss(self.com_row, self.com_col, self.user_board, self.user_board)
-
-def check_hit_or_miss(self, row, col, board, update_board):
+    def check_hit_or_miss(self, row, col, board, update_board):
         """
         Checks if a ship is at the user guess coordinates
         """
@@ -109,7 +125,7 @@ def check_hit_or_miss(self, row, col, board, update_board):
             print("                    They missed us!! Carry on lads!")
             self.take_guess()
 
-   def end_game_lose():
+    def end_game_lose():
         """
         plays losing sequence
         """
@@ -123,6 +139,7 @@ def check_hit_or_miss(self, row, col, board, update_board):
         print(ascii_lose)
         time.sleep(3)
         Intro()
+
 
     def end_game_win():
         """
