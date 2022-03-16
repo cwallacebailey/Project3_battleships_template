@@ -71,3 +71,8 @@ class ship_placement:
             self.x += 2
             self.y += 2
             self.coordinate(self.length)
+
+go = ship_placement().board
+go2 = ship_placement().board
+
+board_format(go, go2)
