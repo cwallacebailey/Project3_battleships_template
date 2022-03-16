@@ -1,10 +1,20 @@
+""" This module houses code to create and format the board """
+
 import random
 
-class CreateBoard:
 
+class CreateBoard():
+    """
+    creates a board and places
+    ships randomly ensuring
+    they do not go over the edge
+    and do not cross over each other
+    """
     def __init__(self):
         self.ships = [4, chr(8517), 3, chr(8486), 3, chr(8492), 2, chr(8497)]
         self.number_of_ships = int(len(self.ships)/2)
+        self.hidden_board = self.hidden_board
+        self.board = self.board
         self.board_size = 8
         self.x = 0
         self.y = 1
@@ -23,44 +33,69 @@ class CreateBoard:
         return self.board, self.hidden_board
 
     def ship_direction(self):
+        """
+        randomly selects if a ship
+        will be placed horizontal
+        or vertical
+        """
         if random.randint(0, 1) == 0:
-            direction = True #vertical row + 1
+            direction = True  # vertical
         else:
-            direction = False #horizontal col + 1
+            direction = False  # horizontal
         return direction
 
-    def coordinate(self, length):
-        row, col = random.randint(0, self.board_size**2 - 1) // self.board_size, random.randint(0, self.board_size**2 - 1) % self.board_size 
+    def coordinate(self):
+        """
+        creates a starting coordinate
+        for the ship to be placed
+        """
+        row = random.randint(0, self.board_size**2 - 1) // self.board_size
+        col = random.randint(0, self.board_size**2 - 1) % self.board_size
         direction = self.ship_direction()
         self.direction_check(row, col, direction)
 
     def direction_check(self, row, col, direction):
+        """
+        checks if the ships direction and total length
+        will lead to the ship coming off the board
+        if so coordinate is called to start again
+        """
         if direction:
             if (row + self.length) > (self.board_size - 1):
                 self.coordinate(self.length)
             else:
                 self.coordinate_check(row, col, direction)
-        else: 
+        else:
             if (col + self.length) > (self.board_size - 1):
                 self.coordinate(self.length)
-            else: 
+            else:
                 self.coordinate_check(row, col, direction)
 
     def coordinate_check(self, row, col, direction):
+        """
+        checks if coordinates that the ship would require
+        to be placed based on direction and length
+        are already in use
+        """
         temp_coordinates = []
         x = 1
         if direction:
-            for i in range(self.length):
+            for _ in range(self.length):
                 temp_coordinates.append(str(row + x) + str(col))
                 x += 1
-        else: 
-            for i in range(self.length):
+        else:
+            for _ in range(self.length):
                 temp_coordinates.append(str(row) + str(col + x))
                 x += 1
-        self.array_check(temp_coordinates, self.symbol)
+        self.array_check(temp_coordinates)
 
-    def array_check(self, temp_coordinates, symbol):
-        if any(i in temp_coordinates for i in self.array): #https://stackoverflow.com/questions/36190533/python-check-if-an-numpy-array-contains-any-element-of-another-array
+    def array_check(self, temp_coordinates):
+        """
+        Checks if proposed coordinates of ship
+        already contain a ship
+        """
+        # https://stackoverflow.com/questions/36190533/python-check-if-an-numpy-array-contains-any-element-of-another-array
+        if any(i in temp_coordinates for i in self.array):
             self.coordinate(self.length)
         else:
             for i in temp_coordinates:
@@ -71,15 +106,25 @@ class CreateBoard:
                 self.board[row][col] = self.symbol
 
     def run(self):
-        for i in range(self.number_of_ships):
+        """
+        calls methods with each ship type and length
+        placing them on the board one after another
+        """
+        for _ in range(self.number_of_ships):
             self.length = self.ships[self.x]
             self.symbol = self.ships[self.y]
             self.x += 2
             self.y += 2
             self.coordinate(self.length)
 
-class board_format():
-    
+
+class BoardFormat():
+    """
+    formats board into a usable form
+    and displays it for the user to see
+    the computer or 'hidden' board alongside
+    their own board
+    """
     def __init__(self, board1, board2):
         self.board1 = board1
         self.board2 = board2
@@ -87,10 +132,10 @@ class board_format():
 
     def board_formatting(self, board1, board2):
         """
-        Converts the board given into an appropriate appearance
+        Converts the board given into a usable appearance
         """
-        print("      1","2","3","4","5","6","7","8","    1","2","3","4","5","6","7","8")
-        print(" "*6 + "— "*8 + " "*4 + "— "*8 )
+        print("      1 2 3 4 5 6 7 8   "*2)
+        print(" "*6 + "— "*8 + " "*4 + "— "*8)
         for i, (col, row) in enumerate(zip(board1, board2)):
             print(
                 (i + 1),
@@ -129,9 +174,4 @@ class board_format():
                 " | ",
                 (i + 1)
             )
-        print("\n"," "*3, "   Enemy Ships     "," "*1, "   Our Ships     ")
-
-go = CreateBoard().board
-go2 = CreateBoard().hidden_board
-
-board_format(go, go2)
+        print("\n", " "*3, "   Enemy Ships     ", " "*1, "   Our Ships     ")

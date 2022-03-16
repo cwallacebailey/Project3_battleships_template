@@ -15,6 +15,7 @@ def display_clear():
         command = 'cls'
     os.system(command)
 
+
 display_clear()
 
 # https://stackoverflow.com/a/10390877
