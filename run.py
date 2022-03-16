@@ -1,4 +1,14 @@
 import random, time, sys
+from com.tool_functions import display_clear
+from com.board import *
+from com.ascii import *
+from intro import *
+
+user_board = CreateBoard().board
+computer_board = CreateBoard().board
+guess_board = CreateBoard().hidden_board
+user_ships = CreateBoard().ships_to_place
+computer_ships = CreateBoard().ships_to_place
 
 class Play_Game:
 
