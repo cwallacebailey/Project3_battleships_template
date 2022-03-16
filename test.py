@@ -27,3 +27,15 @@ class ship_placement:
         row, col = random.randint(0, self.board_size**2 - 1) // self.board_size, random.randint(0, self.board_size**2 - 1) % self.board_size 
         direction = self.ship_direction()
         self.direction_check(row, col, direction)
+
+    def direction_check(self, row, col, direction):
+        if direction:
+            if (row + self.length) > (self.board_size - 1):
+                self.coordinate(self.length)
+            else:
+                self.coordinate_check(row, col, direction)
+        else: 
+            if (col + self.length) > (self.board_size - 1):
+                self.coordinate(self.length)
+            else: 
+                self.coordinate_check(row, col, direction)
