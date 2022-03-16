@@ -107,7 +107,7 @@ class PlayGame():
         Checks if a ship is at the user guess coordinates
         """
         display_clear()
-        if board[row][col] != chr(128911):
+        if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print("direct hit, well done")
 
@@ -133,7 +133,7 @@ class PlayGame():
         print("They're getting ready to shoot!!")
         time.sleep(0.5)
         display_clear()
-        if board[row][col] != chr(128911):
+        if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print("                    One of our ships has been destroyed!")
 

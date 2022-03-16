@@ -17,12 +17,12 @@ class CreateBoard():
         self.ships = [4, chr(8517), 3, chr(8486), 3, chr(8492), 2, chr(8497)]
         self.number_of_ships = int(len(self.ships)/2)
         self.board_size = 8
-        self.length = 0
+        self.length = None
+        self.symbol = None
         self.ship_length_array_item = 0
         self.ship_display_array_item = 1
         self.array = []
         self.build = self.build_board()
-        self.start = self.run()
 
     def build_board(self):
         """
@@ -33,6 +33,7 @@ class CreateBoard():
         i = self.board_size
         self.hidden_board = [["." for _ in range(i)] for _ in range(i)]
         self.board = [["." for _ in range(i)] for _ in range(i)]
+        self.run()
         return self.board, self.hidden_board
 
     def ship_direction(self):
@@ -119,7 +120,6 @@ class CreateBoard():
             self.ship_length_array_item += 2
             self.ship_display_array_item += 2
             self.coordinate()
-        return(self.board)  # added to prevent error
 
 
 class BoardFormat():
