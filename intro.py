@@ -122,7 +122,7 @@ class Intro:
             display_clear()
             print("Each ship must be placed horizontally or vertically across grid spaces—not diagonally—and the ships can't hang off the grid. Ships can touch each other, but they can't occupy the same grid space. You cannot change the position of the ships after the game begins. Players take turns firing shots (by calling out a grid coordinate) to attempt to hit the opponent's enemy ships. On your turn, call out a letter and a number that identifies a row and column on your target grid. Your opponent checks that coordinate on their ocean grid and verbally responds 'miss' if there is no ship there, or 'hit' if you have correctly guessed a space that is occupied by a ship.\n")
             rules_finished = input("Happy with the rules and ready to play? Type any key and hit return to continue \n")
-            self.menu()
+            self.opening_menu()
 
     def collect_username(self):
         """
@@ -149,3 +149,4 @@ class Intro:
             time.sleep(0.8)
             self.battle_ship_animation()
 
+Intro()
