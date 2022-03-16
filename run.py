@@ -15,8 +15,8 @@ guess_board = CreateBoard().hidden_board
 
 class PlayGame():
     """
-    creates board for the user and takes 
-    guesses until the game ends in user 
+    creates board for the user and takes
+    guesses until the game ends in user
     or computer victory
     """
     def __init__(self):
@@ -26,6 +26,8 @@ class PlayGame():
         self.user_board = user_board
         self.computer_board = computer_board
         self.guess_board = guess_board
+        self.com_row = None
+        self.com_col = None
         self.TakeGuess = self.take_guess()
 
     def display(self):
@@ -41,7 +43,7 @@ class PlayGame():
         """
         self.display()
         check_list = ['1', '2', '3', '4', '5', '6', '7', '8']
-        self.row = input('\n                Enter a row between 1 and 8: \n                              ')
+        self.row = input('\n                Enter a row between 1 and 8: \n')
         while self.row not in check_list:
             print('Please enter a valid row')
             self.row = input('Enter a row between 1 and 8: \n')
@@ -66,7 +68,7 @@ class PlayGame():
         self.com_row = int(self.com_row)
         self.com_col = int(self.com_col)
         self.computer_check_guess(self.com_row, self.com_col, self.user_board)
-    
+
     def computer_check_guess(self, row, col, board):
         """
         Ensures the guess has not been made before
@@ -77,7 +79,7 @@ class PlayGame():
             self.computer_guess()
         elif board[row][col] == chr(128369):
             self.computer_guess()
-        else: 
+        else:
             self.computer_check_hit_or_miss(self.com_row, self.com_col, self.user_board, self.user_board)
 
     def check_guess(self, row, col, board):
@@ -93,7 +95,7 @@ class PlayGame():
             display_clear()
             print("We've shot there before, try another coordinate")
             self.take_guess()
-        else: 
+        else:
             self.check_hit_or_miss(self.row, self.col, self.computer_board, self.guess_board)
 
     def check_hit_or_miss(self, row, col, board, update_board):
@@ -106,11 +108,11 @@ class PlayGame():
             print("direct hit, well done")
 
             self.computer_ships -= 1
-            
+
             if self.computer_ships == 0:
                 print("Its Over")
                 time.sleep(5)
-                self.game_end_win()
+                self.end_game_win()
 
             else:
                 self.computer_guess()
@@ -132,9 +134,9 @@ class PlayGame():
             print("                    One of our ships has been destroyed!")
 
             self.user_ships -= 1
-            
+
             if self.user_ships == 0:
-                ("                     That was their last ship!!")
+                print("                     That was their last ship!!")
                 time.sleep(5)
                 self.end_game_lose()
 
@@ -145,7 +147,7 @@ class PlayGame():
             print("                    They missed us!! Carry on lads!")
             self.take_guess()
 
-    def end_game_lose():
+    def end_game_lose(self):
         """
         plays losing sequence
         """
@@ -160,8 +162,7 @@ class PlayGame():
         time.sleep(3)
         Intro()
 
-
-    def end_game_win():
+    def end_game_win(self):
         """
         plays losing sequence
         """
