@@ -2,7 +2,10 @@
 
 import time
 from tool_functions import type_slowly, display_clear
-from ascii import *
+from ascii import ASCII_OPENING_PAGE, ASCII_BATTLE, ASCII_SHIPS, ASCII_RULES
+from ascii import ASCII_LETS, ASCII_HUNT, ASCII_PIRATES
+from ascii import ASCII_SHIP_1, ASCII_SHIP_2, ASCII_SHIP_3
+from ascii import ASCII_DOOR_1, ASCII_DOOR_2
 # from run import PlayGame
 
 Username = []
@@ -10,7 +13,7 @@ Username = []
 
 class Intro():
     """
-    plays opening sequence 
+    plays opening sequence
     starting with the opening_menu
     """
 
@@ -89,7 +92,7 @@ class Intro():
         display_clear()
         print(ASCII_DOOR_2)
         time.sleep(1)
-        type_slowly("..................... ..hello?.....................\n")
+        type_slowly(".......................hello?.....................\n")
         time.sleep(1)
         type_slowly("..............is...is anybody there?.................\n")
         time.sleep(0.5)
@@ -114,12 +117,15 @@ class Intro():
         type_slowly("To make things worse between us and them is a fleet of")
         type_slowly("pirate vessels.\nWe could use every able hand.")
         type_slowly(" Will you help us rescue them? \n")
-        self.answer = input("Type 'Y' to help the rescue or 'N' to return to the main menu \n").upper()
+        type_slowly("Type 'Y' to help or 'N' to return to the main menu")
+        self.answer = input("\n").upper()
         while self.answer not in answers:
             display_clear()
             type_slowly("I'm sorry, I can't make sense of what you said, ")
             type_slowly("could you try again?\n")
-            self.answer = input("Type 'Y' to continue or 'N' to return to the main menu \n").upper()
+            type_slowly("Type 'Y' to continue or 'N' to return to the ")
+            type_slowly("main menu")
+            self.answer = input("\n").upper()
         if self.answer == "Y":
             display_clear()
             self.collect_username()
@@ -128,7 +134,7 @@ class Intro():
 
     def battle_ship_animation(self):
         """
-        clears the screen and 
+        clears the screen and
         types battle ships
         """
         display_clear()
@@ -145,17 +151,17 @@ class Intro():
         """
         display_clear()
         print(ASCII_RULES)
-        print("Battleship is a war-themed board game for two players in which the opponents try to guess the location of their opponent's warships and sink them. Before the game starts, each opponent secretly places their own five ships on the ocean grid (lower part of the board) by laying out their ships and anchoring them into the holes on the grid. \n")
+        print("rules to go here")
         cont = input("Type 'Y' to continue\n").upper()
         while cont != 'Y':
             display_clear()
             print(ASCII_RULES)
-            print("Battleship is a war-themed board game for two players in which the opponents try to guess the location of their opponent's warships and sink them. Before the game starts, each opponent secretly places their own five ships on the ocean grid (lower part of the board) by laying out their ships and anchoring them into the holes on the grid. \n")
+            print("rules to go here")
             print("You didn't type 'Y'\n")
             cont = input("Type 'Y' to continue \n").upper()
         display_clear()
-        print("Each ship must be placed horizontally or vertically across grid spaces—not diagonally—and the ships can't hang off the grid. Ships can touch each other, but they can't occupy the same grid space. You cannot change the position of the ships after the game begins. Players take turns firing shots (by calling out a grid coordinate) to attempt to hit the opponent's enemy ships. On your turn, call out a letter and a number that identifies a row and column on your target grid. Your opponent checks that coordinate on their ocean grid and verbally responds 'miss' if there is no ship there, or 'hit' if you have correctly guessed a space that is occupied by a ship.\n")
-        input("Happy with the rules and ready to play? Type any key and hit return to continue \n")
+        print("rules to go here 2")
+        input("Type any key and hit enter to return to the main menu \n")
         self.opening_menu()
 
     def collect_username(self):
@@ -173,18 +179,14 @@ class Intro():
             type_slowly(".......the silent type are we? I'm going to")
             type_slowly(" need a name to start. Now what is it?")
             username = input("\n")
-        else:
-            display_clear()
-            type_slowly(f"Welcome aboard {username}")
-            time.sleep(1)
-            display_clear()
-            print(ASCII_LETS)
-            time.sleep(0.8)
-            print(ASCII_HUNT)
-            time.sleep(0.8)
-            print(ASCII_PIRATES)
-            time.sleep(0.8)
-            self.battle_ship_animation()
-
-Go = Intro()
-Go
+        display_clear()
+        type_slowly(f"Welcome aboard {username}")
+        time.sleep(1)
+        display_clear()
+        print(ASCII_LETS)
+        time.sleep(0.8)
+        print(ASCII_HUNT)
+        time.sleep(0.8)
+        print(ASCII_PIRATES)
+        time.sleep(0.8)
+        self.battle_ship_animation()

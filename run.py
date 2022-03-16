@@ -5,17 +5,20 @@ Main run file
 import random
 import time
 from tool_functions import display_clear
-from board import CreateBoard
-from ascii import *
-from intro import *
+from board import CreateBoard, BoardFormat
+from ascii import ASCII_GAME, ASCII_OVER, ASCII_YOU, ASCII_LOSE, ASCII_WIN
 
 user_board = CreateBoard().board
 computer_board = CreateBoard().board
 guess_board = CreateBoard().hidden_board
 
 
-class playGame:
-
+class PlayGame():
+    """
+    creates board for the user and takes 
+    guesses until the game ends in user 
+    or computer victory
+    """
     def __init__(self):
         self.user_ships = 6
         self.computer_ships = 6
@@ -23,13 +26,13 @@ class playGame:
         self.user_board = user_board
         self.computer_board = computer_board
         self.guess_board = guess_board
-        self.take_guess = self.take_guess()
+        self.TakeGuess = self.take_guess()
 
     def display(self):
         """
         prints the board for the user to see
         """
-        board_format(self.user_board, self.guess_board)
+        BoardFormat(self.user_board, self.guess_board)
 
     def take_guess(self):
         """
@@ -37,7 +40,7 @@ class playGame:
         Takes the input from the user as coordinates
         """
         self.display()
-        check_list = ['1','2','3','4','5','6','7','8']
+        check_list = ['1', '2', '3', '4', '5', '6', '7', '8']
         self.row = input('\n                Enter a row between 1 and 8: \n                              ')
         while self.row not in check_list:
             print('Please enter a valid row')
@@ -56,7 +59,10 @@ class playGame:
         passes guess to a check that the guess -
         has not been made before
         """
-        self.com_row, self.com_col = random.randint(0, self.board_size**2 - 1) // self.board_size, random.randint(0, self.board_size**2 - 1) % self.board_size
+        self.com_row = random.randint(0, self.board_size**2 - 1) // \
+            self.board_size
+        self.com_col = random.randint(0, self.board_size**2 - 1) % \
+            self.board_size
         self.com_row = int(self.com_row)
         self.com_col = int(self.com_col)
         self.computer_check_guess(self.com_row, self.com_col, self.user_board)

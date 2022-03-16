@@ -10,6 +10,9 @@ class CreateBoard():
     they do not go over the edge
     and do not cross over each other
     """
+    # pylint: disable=too-many-instance-attributes
+    # Twelve is reasonable in this case.
+    
     def __init__(self):
         self.ships = [4, chr(8517), 3, chr(8486), 3, chr(8492), 2, chr(8497)]
         self.number_of_ships = int(len(self.ships)/2)
