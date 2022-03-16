@@ -1,4 +1,5 @@
-import random, time, sys
+import random
+import time
 from com.tool_functions import display_clear
 from board import *
 from com.ascii import *
@@ -8,7 +9,8 @@ user_board = CreateBoard().board
 computer_board = CreateBoard().board
 guess_board = CreateBoard().hidden_board
 
-class Play_Game:
+
+class playGame:
 
     def __init__(self):
         self.user_ships = 6
