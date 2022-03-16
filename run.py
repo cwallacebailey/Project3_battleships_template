@@ -82,3 +82,29 @@ def check_hit_or_miss(self, row, col, board, update_board):
             update_board[row][col] = "\U0001f30a"
             print("Miss")
             self.computer_guess()
+
+    def computer_check_hit_or_miss(self, row, col, board, update_board):
+        """
+        Checks if a ship is at the computer guess coordinates
+        """
+        time.sleep(0.5)
+        print("They're getting ready to shoot!!")
+        time.sleep(0.5)
+        display_clear()
+        if board[row][col] == "\U0001f6a2":
+            update_board[row][col] = '\U0001f525'
+            print("                    One of our ships has been destroyed!")
+
+            self.user_ships -= 1
+            
+            if self.user_ships == 0:
+                ("                     That was their last ship!!")
+                time.sleep(5)
+                self.end_game_lose()
+
+            else:
+                self.take_guess()
+        else:
+            update_board[row][col] = "\U0001f30a"
+            print("                    They missed us!! Carry on lads!")
+            self.take_guess()
