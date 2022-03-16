@@ -165,3 +165,5 @@ class Play_Game:
         print(ascii_win)
         time.sleep(3)
         Intro()
+
+Play_Game()
