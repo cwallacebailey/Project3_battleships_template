@@ -63,3 +63,11 @@ class ship_placement:
                 row = int(i[:1])
                 col = int(i[1:])
                 self.board[row][col] = self.symbol
+
+    def run(self):
+        for i in range(self.number_of_ships):
+            self.length = self.ships[self.x]
+            self.symbol = self.ships[self.y]
+            self.x += 2
+            self.y += 2
+            self.coordinate(self.length)
