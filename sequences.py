@@ -6,6 +6,7 @@ from ascii import ASCII_OPENING_PAGE, ASCII_BATTLE, ASCII_SHIPS, ASCII_RULES
 from ascii import ASCII_LETS, ASCII_HUNT, ASCII_PIRATES
 from ascii import ASCII_SHIP_1, ASCII_SHIP_2, ASCII_SHIP_3
 from ascii import ASCII_DOOR_1, ASCII_DOOR_2
+from ascii import ASCII_GAME, ASCII_OVER, ASCII_YOU, ASCII_LOSE, ASCII_WIN
 # from run import PlayGame
 
 Username = []
@@ -190,3 +191,35 @@ class Intro():
         print(ASCII_PIRATES)
         time.sleep(0.8)
         self.battle_ship_animation()
+
+
+def end_game_lose():
+    """
+    plays losing sequence
+    """
+    print(ASCII_GAME)
+    time.sleep(0.5)
+    print(ASCII_OVER)
+    time.sleep(0.5)
+    display_clear()
+    print(ASCII_YOU)
+    time.sleep(0.5)
+    print(ASCII_LOSE)
+    time.sleep(3)
+    Intro()
+
+
+def end_game_win():
+    """
+    plays losing sequence
+    """
+    print(ASCII_GAME)
+    time.sleep(0.5)
+    print(ASCII_OVER)
+    time.sleep(0.5)
+    display_clear()
+    print(ASCII_YOU)
+    time.sleep(0.5)
+    print(ASCII_WIN)
+    time.sleep(3)
+    Intro()

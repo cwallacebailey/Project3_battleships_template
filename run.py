@@ -147,34 +147,3 @@ class PlayGame():
             print("                    They missed us!! Carry on lads!")
             self.take_guess()
 
-    def end_game_lose(self):
-        """
-        plays losing sequence
-        """
-        print(ASCII_GAME)
-        time.sleep(0.5)
-        print(ASCII_OVER)
-        time.sleep(0.5)
-        display_clear()
-        print(ASCII_YOU)
-        time.sleep(0.5)
-        print(ASCII_LOSE)
-        time.sleep(3)
-        Intro()
-
-    def end_game_win(self):
-        """
-        plays losing sequence
-        """
-        print(ASCII_GAME)
-        time.sleep(0.5)
-        print(ASCII_OVER)
-        time.sleep(0.5)
-        display_clear()
-        print(ASCII_YOU)
-        time.sleep(0.5)
-        print(ASCII_WIN)
-        time.sleep(3)
-        Intro()
-
-Play_Game()
