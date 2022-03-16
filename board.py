@@ -78,6 +78,60 @@ class CreateBoard:
             self.y += 2
             self.coordinate(self.length)
 
+class board_format():
+    
+    def __init__(self, board1, board2):
+        self.board1 = board1
+        self.board2 = board2
+        self.board_formatting = self.board_formatting(board1, board2)
+
+    def board_formatting(self, board1, board2):
+        """
+        Converts the board given into an appropriate appearance
+        """
+        print("      1","2","3","4","5","6","7","8","    1","2","3","4","5","6","7","8")
+        print(" "*6 + "— "*8 + " "*4 + "— "*8 )
+        for i, (col, row) in enumerate(zip(board1, board2)):
+            print(
+                (i + 1),
+                " | ",
+                ''.join(x for x in row[0]),
+                " "
+                ''.join(x for x in row[1]),
+                " "
+                ''.join(x for x in row[2]),
+                " "
+                ''.join(x for x in row[3]),
+                " "
+                ''.join(x for x in row[4]),
+                " "
+                ''.join(x for x in row[5]),
+                " "
+                ''.join(x for x in row[6]),
+                " "
+                ''.join(x for x in row[7]),
+                " | ",
+                ''.join(x for x in col[0]),
+                " "
+                ''.join(x for x in col[1]),
+                " "
+                ''.join(x for x in col[2]),
+                " "
+                ''.join(x for x in col[3]),
+                " "
+                ''.join(x for x in col[4]),
+                " "
+                ''.join(x for x in col[5]),
+                " "
+                ''.join(x for x in col[6]),
+                " "
+                ''.join(x for x in col[7]),
+                " | ",
+                (i + 1)
+            )
+        print("\n"," "*3, "   Enemy Ships     "," "*1, "   Our Ships     ")
+
 go = CreateBoard().board
 go2 = CreateBoard().hidden_board
-print(go, go2)
+
+board_format(go, go2)
