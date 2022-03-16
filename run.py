@@ -19,6 +19,18 @@ def take_guess(self):
         self.col = int(self.col) - 1
         self.check_guess(self.row, self.col, self.guess_board)
 
+def computer_guess(self):
+        """
+        Creates a random guess for the computer
+        passes guess to a check that the guess -
+        has not been made before
+        """
+        self.com_row, self.com_col = random.randint(0, self.board_size**2 - 1) // self.board_size, random.randint(0, self.board_size**2 - 1) % self.board_size
+        self.com_row = int(self.com_row)
+        self.com_col = int(self.com_col)
+        self.computer_check_guess(self.com_row, self.com_col, self.user_board)
+
+
 def check_guess(self, row, col, board):
         """
         Checks if a ship is at the guess location
@@ -34,6 +46,19 @@ def check_guess(self, row, col, board):
             self.take_guess()
         else: 
             self.check_hit_or_miss(self.row, self.col, self.computer_board, self.guess_board)
+
+def computer_check_guess(self, row, col, board):
+        """
+        Ensures the guess has not been made before
+        if not, passes guess to check_hit_or_miss
+        if it has been guessed before computer_guess is called again
+        """
+        if board[row][col] == "\U0001f30a":
+            self.computer_guess()
+        elif board[row][col] == "\U0001f525":
+            self.computer_guess()
+        else: 
+            self.computer_check_hit_or_miss(self.com_row, self.com_col, self.user_board, self.user_board)
 
 def check_hit_or_miss(self, row, col, board, update_board):
         """
