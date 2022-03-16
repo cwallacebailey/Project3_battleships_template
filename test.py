@@ -39,3 +39,16 @@ class ship_placement:
                 self.coordinate(self.length)
             else: 
                 self.coordinate_check(row, col, direction)
+
+    def coordinate_check(self, row, col, direction):
+        temp_coordinates = []
+        x = 1
+        if direction:
+            for i in range(self.length):
+                temp_coordinates.append(str(row + x) + str(col))
+                x += 1
+        else: 
+            for i in range(self.length):
+                temp_coordinates.append(str(row) + str(col + x))
+                x += 1
+        self.array_check(temp_coordinates, self.symbol)
