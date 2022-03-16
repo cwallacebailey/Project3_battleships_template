@@ -1,3 +1,4 @@
+""" This module houses commonly used functions / tools"""
 import os
 import sys
 import time
@@ -10,15 +11,18 @@ def display_clear():
     clears console
     """
     command = 'clear'
-    if os.name in (
-        'nt', 'dos'):
-            command = 'cls'
+    if os.name in ('nt', 'dos'):
+        command = 'cls'
     os.system(command)
 
+display_clear()
 
-def type_slowly(text): #https://stackoverflow.com/a/10390877
+# https://stackoverflow.com/a/10390877
+
+
+def type_slowly(text):
     """
-    allows text to by typed out slowly 
+    allows text to by typed out slowly
     instead of all appearing at once
     """
     for i in text:
