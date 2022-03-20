@@ -150,3 +150,6 @@ class PlayGame():
             update_board[row][col] = chr(9410)
             print("                    They missed us!! Carry on lads!")
             self.take_guess()
+
+
+PlayGame()
