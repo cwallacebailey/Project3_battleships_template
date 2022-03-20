@@ -138,10 +138,11 @@ class BoardFormat():
         """
         Converts the board given into a usable appearance
         """
-        print("      ", "1 2 3 4 5 6 7 8   "*2)
-        print(" "*6 + "— "*8 + " "*4 + "— "*8)
+        print("\n"*3, " "*20, "1 2 3 4 5 6 7 8     "*2)
+        print(" "*22 + "— "*8 + " "*4 + "— "*8)
         for i, (col, row) in enumerate(zip(board1, board2)):
             print(
+                " "*15,
                 (i + 1),
                 " | ",
                 ''.join(x for x in row[0]),
@@ -178,5 +179,5 @@ class BoardFormat():
                 " | ",
                 (i + 1)
             )
-        print("\n", " "*3, "   Enemy Ships     ", " "*1, "   Our Ships     ")
+        print("\n", " "*19, "   Enemy Ships     ", " "*1, "   Our Ships     ")
         return board1, board2
