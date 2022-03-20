@@ -6,7 +6,6 @@ import random
 import time
 from tool_functions import display_clear
 from board import CreateBoard, BoardFormat
-from sequences import end_game_win, end_game_lose
 from ships_destroyed import ship_check
 
 

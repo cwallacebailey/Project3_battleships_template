@@ -1,13 +1,11 @@
+""" module to see update ship damage """
+
 from sequences import end_game_lose
 
 destroyer_destroyed = False
 battleship_destroyed = False
 ship_destroyed = False
 friggot_destroyed = False
-destroyer = 0
-battleship = 0
-ship = 0
-friggot = 0
 
 
 def ship_check(board):
@@ -15,7 +13,10 @@ def ship_check(board):
     checks board arrays to see
     if ships are still present
     """
-
+    destroyer = 0
+    battleship = 0
+    ship = 0
+    friggot = 0
     for row in board:
         for column in row:
             if column == chr(8517):
@@ -34,16 +35,16 @@ def ships_destroyed(destroyer, battleship, ship, friggot):
     ensures that each ship
     can only be destroyed once
     """
-    if destroyer == 0 and destroyer_destroyed is False:
+    if destroyer == 0 and global destroyer_destroyed is False:
         print("The destroyer's been destroyed")
         destroyer_destroyed = True
-    if battleship == 0 and battleship_destroyed is False:
+    if battleship == 0 and global battleship_destroyed is False:
         print("That's the battleship gone")
         battleship_destroyed = True
-    if ship == 0 and ship_destroyed is False:
+    if ship == 0 and global ship_destroyed is False:
         print("That's the battleship gone")
         ship_destroyed = True
-    if friggot == 0 and friggot_destroyed is False:
+    if friggot == 0 and global friggot_destroyed is False:
         print("That's the friggot down")
         friggot_destroyed = True
     return(destroyer_destroyed, battleship_destroyed,
