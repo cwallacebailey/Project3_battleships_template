@@ -1,9 +1,4 @@
-""" this is where we test """
-
-from board import CreateBoard
 from sequences import end_game_lose
-
-GO = CreateBoard().board
 
 destroyer_destroyed = False
 battleship_destroyed = False
@@ -15,13 +10,13 @@ ship = 0
 friggot = 0
 
 
-def ship_check():
+def ship_check(board):
     """
-    checks board arrays to see 
+    checks board arrays to see
     if ships are still present
     """
 
-    for row in GO:
+    for row in board:
         for column in row:
             if column == chr(8517):
                 destroyer += 1

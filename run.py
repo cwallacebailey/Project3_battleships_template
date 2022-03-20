@@ -7,6 +7,7 @@ import time
 from tool_functions import display_clear
 from board import CreateBoard, BoardFormat
 from sequences import end_game_win, end_game_lose
+from ships_destroyed import ship_check
 
 
 user_board = CreateBoard().board
@@ -110,16 +111,7 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print("direct hit, well done")
-
-            self.computer_ships -= 1
-
-            if self.computer_ships == 0:
-                print("Its Over")
-                time.sleep(5)
-                end_game_win()
-
-            else:
-                self.computer_guess()
+            ship_check(board)
         else:
             update_board[row][col] = chr(9410)
             print("Miss")
@@ -135,17 +127,9 @@ class PlayGame():
         display_clear()
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
-            print("                    One of our ships has been destroyed!")
+            print("                    One of our ships has been hit!")
+            ship_check(board)
 
-            self.user_ships -= 1
-
-            if self.user_ships == 0:
-                print("                     That was their last ship!!")
-                time.sleep(5)
-                end_game_lose()
-
-            else:
-                self.take_guess()
         else:
             update_board[row][col] = chr(9410)
             print("                    They missed us!! Carry on lads!")
