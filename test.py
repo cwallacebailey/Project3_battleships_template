@@ -1,6 +1,6 @@
 """ testing module"""
 
-destroyer_destroyed = False
+destroyer_destroyed = False  # pylint: disable=C0103
 
 
 class Test():
