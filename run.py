@@ -4,8 +4,8 @@ Main run file
 
 import random
 import time
-from tool_functions import display_clear
-from board import CreateBoard, BoardFormat
+from tools.general import display_clear
+from classes.board import CreateBoard, BoardFormat
 from ships_destroyed import ShipDamage
 
 
@@ -108,7 +108,7 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print("direct hit, well done")
-            ShipDamage()
+            ShipDamage(board)
         else:
             update_board[row][col] = chr(9410)
             print("Miss")
@@ -125,7 +125,7 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print("                    One of our ships has been hit!")
-            ShipDamage()
+            ShipDamage(board)
 
         else:
             update_board[row][col] = chr(9410)
