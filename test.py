@@ -1,12 +1,22 @@
+""" testing module"""
+
+destroyer_destroyed = False
 
 
-def update():
+class Test():
     """
-    s
+    test
     """
-    x += 1
-    print(x)
+    def __init__(self, destroyer_destroyed):
+        self.test = self.tester()
 
-x = 0
+    def tester(self):
+        """
+        anything
+        """
+        destroyer_destroyed = True
+        print(destroyer_destroyed)
+        return destroyer_destroyed
 
-update()
+
+Test(destroyer_destroyed)

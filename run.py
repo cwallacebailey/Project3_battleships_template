@@ -6,7 +6,7 @@ import random
 import time
 from tool_functions import display_clear
 from board import CreateBoard, BoardFormat
-from ships_destroyed import ship_check
+from ships_destroyed import ShipDamage
 
 
 user_board = CreateBoard().board
@@ -21,8 +21,6 @@ class PlayGame():
     or computer victory
     """
     def __init__(self):
-        self.user_ships = 6
-        self.computer_ships = 6
         self.board_size = 8
         self.user_board = user_board
         self.computer_board = computer_board
@@ -110,7 +108,7 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print("direct hit, well done")
-            ship_check(board)
+            ShipDamage()
         else:
             update_board[row][col] = chr(9410)
             print("Miss")
@@ -127,7 +125,7 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print("                    One of our ships has been hit!")
-            ship_check(board)
+            ShipDamage()
 
         else:
             update_board[row][col] = chr(9410)
