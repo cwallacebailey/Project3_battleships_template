@@ -4,9 +4,9 @@ Main run file
 
 import random
 import time
-from tools.general import display_clear
-from classes.board import CreateBoard, BoardFormat
-from ships_destroyed import ShipDamage
+from python.general_functions import display_clear
+from python.board import CreateBoard, BoardFormat
+from python.ships_destroyed import ShipDamage
 
 
 user_board = CreateBoard().board

@@ -1,7 +1,7 @@
 """ Module houses visual sequences such as intro """
 
 import time
-from general import type_slowly, display_clear
+from general_functions import type_slowly, display_clear
 from ascii import ASCII_OPENING_PAGE, ASCII_BATTLE, ASCII_SHIPS
 from ascii import ASCII_RULES, ASCII_WIN
 from ascii import ASCII_LETS, ASCII_HUNT, ASCII_PIRATES
