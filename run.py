@@ -41,18 +41,18 @@ class PlayGame():
         """
         self.display()
         check_list = ['1', '2', '3', '4', '5', '6', '7', '8']
-        print("\n", " "*20, )
-        self.row = input("Enter a row between 1 and 8: \n")
+        self.row = input('\n                          Enter a row between 1 and 8: \
+            \n                                        ')
         while self.row not in check_list:
-            print(" "*20, 'Please enter a valid row')
-            print("\n", " "*20, )
-            self.row = input('Enter a row between 1 and 8: \n')
-        print("\n", " "*20, )
-        self.col = input('Enter a column between 1 and 8: \n')
+            print(" "*20, 'Please enter a valid row \n')
+            self.row = input('                          Enter a row between 1 and 8: \
+            \n                                        ')
+        self.col = input('                         Enter a Column between 1 and 8: \
+            \n                                        ')
         while self.col not in check_list:
-            print(" "*20, 'Please enter a valid column')
-            print("\n", " "*20, )
-            self.col = input('Enter a Column between 1 and 8: \n')
+            print(" "*20, 'Please enter a valid column\n')
+            self.col = input('                         Enter a Column between 1 and 8: \
+            \n                                        ')
         self.row = int(self.row) - 1
         self.col = int(self.col) - 1
         self.check_guess(self.row, self.col, self.guess_board)
@@ -93,11 +93,11 @@ class PlayGame():
         print("checking guess")
         if board[row][col] == chr(9410):
             display_clear()
-            print(" "*20, "We've shot there before, try another coordinate")
+            print(" "*16, "We shot there before, try another coordinate")
             self.take_guess()
         elif board[row][col] == chr(128369):
             display_clear()
-            print(" "*20, "We've shot there before, try another coordinate")
+            print(" "*16, "We shot there before, try another coordinate")
             self.take_guess()
         else:
             self.check_hit(self.row, self.col, self.computer_board,
@@ -110,11 +110,11 @@ class PlayGame():
         display_clear()
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
-            print(" "*20, "direct hit, well done")
+            print("\n", " "*20, "direct hit, well done")
             ShipDamage(board)
         else:
             update_board[row][col] = chr(9410)
-            print(" "*20, "Miss")
+            print("\n", " "*31, "Miss")
             self.computer_guess()
 
     def computer_check_hit(self, row, col, board, update_board):
@@ -122,17 +122,17 @@ class PlayGame():
         Checks if a ship is at the computer guess coordinates
         """
         time.sleep(0.5)
-        print(" "*20, "They're getting ready to shoot!!")
+        print(" "*22, "They're getting ready to shoot!!")
         time.sleep(0.5)
         display_clear()
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
-            print(" "*20, "One of our ships has been hit!")
+            print(" "*18, "One of our ships has been hit!")
             ShipDamage(board)
 
         else:
             update_board[row][col] = chr(9410)
-            print(" "*20, "They missed us!! Carry on lads!")
+            print(" "*23, "They missed us!! Carry on lads!")
             self.take_guess()
 
 
