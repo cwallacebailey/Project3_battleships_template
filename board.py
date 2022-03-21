@@ -18,7 +18,7 @@ class CreateBoard():
         self.number_of_ships = int(len(self.ships)/2)
         self.board_size = 8
         self.length = None
-        self.symbol = None
+        self.ship_symbol = None
         self.ship_length_array_item = 0
         self.ship_display_array_item = 1
         self.array = []
@@ -107,7 +107,7 @@ class CreateBoard():
             for i in temp_coordinates:
                 row = int(i[:1])
                 col = int(i[1:])
-                self.board[row][col] = self.symbol
+                self.board[row][col] = self.ship_symbol
 
     def run(self):
         """
@@ -116,7 +116,7 @@ class CreateBoard():
         """
         for _ in range(self.number_of_ships):
             self.length = self.ships[self.ship_length_array_item]
-            self.symbol = self.ships[self.ship_display_array_item]
+            self.ship_symbol = self.ships[self.ship_display_array_item]
             self.ship_length_array_item += 2
             self.ship_display_array_item += 2
             self.coordinate()
@@ -129,18 +129,18 @@ class BoardFormat():
     the computer or 'hidden' board alongside
     their own board
     """
-    def __init__(self, board1, board2):
-        self.board1 = board1
-        self.board2 = board2
-        self.board_format = self.board_formatting(board1, board2)
+    def __init__(self, board_one, board_two):
+        self.board_one = board_one
+        self.board_two = board_two
+        self.board_format = self.board_formatting(board_one, board_two)
 
-    def board_formatting(self, board1, board2):
+    def board_formatting(self, board_one, board_two):
         """
         Converts the board given into a usable appearance
         """
         print("\n"*3, " "*20, "1 2 3 4 5 6 7 8     "*2)
         print(" "*22 + "— "*8 + " "*4 + "— "*8)
-        for i, (col, row) in enumerate(zip(board1, board2)):
+        for i, (col, row) in enumerate(zip(board_one, board_two)):
             print(
                 " "*15,
                 (i + 1),
@@ -180,4 +180,4 @@ class BoardFormat():
                 (i + 1)
             )
         print("\n", " "*19, "   Enemy Ships     ", " "*1, "   Our Ships     ")
-        return board1, board2
+        return board_one, board_two
