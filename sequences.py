@@ -1,14 +1,9 @@
 """ Module houses visual sequences such as intro """
 
 import time
+from game import PlayGame
 from python.general_functions import type_slowly, display_clear
-from python.ascii import ASCII_OPENING_PAGE, ASCII_BATTLE, ASCII_SHIPS
-from python.ascii import ASCII_RULES, ASCII_WIN
-from python.ascii import ASCII_LETS, ASCII_HUNT, ASCII_PIRATES
-from python.ascii import ASCII_SHIP_1, ASCII_SHIP_2, ASCII_SHIP_3
-from python.ascii import ASCII_DOOR_1, ASCII_DOOR_2
-from python.ascii import ASCII_GAME, ASCII_OVER, ASCII_YOU, ASCII_LOSE
-from python.game import PlayGame
+import python.ascii as art
 
 
 class Intro():
@@ -33,18 +28,18 @@ class Intro():
         """
         display_clear()
         answers = ['R', 'P', 'S']
-        print(ASCII_OPENING_PAGE)
+        print(art.ASCII_OPENING_PAGE)
         type_slowly(" Ready to play? Type 'P' then return")
         type_slowly(" To see the rules type 'R' then return\n")
         type_slowly("          To skip the intro type 'S' then the return key")
         answer = input("\n").upper()
         while answer not in answers:
             display_clear()
-            print(ASCII_OPENING_PAGE)
+            print(art.ASCII_OPENING_PAGE)
             type_slowly("  lets try that again\n")
             type_slowly(" Ready to play? Type 'P' then return\n")
             type_slowly(" To see the rules type 'R' then return\n")
-            type_slowly("          To skip the intro type 'S' then the return key")
+            type_slowly("      To skip the intro type 'S' then the return key")
             answer = input("\n").upper()
         if answer == 'P':
             display_clear()
@@ -58,7 +53,7 @@ class Intro():
             self.collect_username()
         else:
             self.rules()
-        return("complete")  # added to remove error "assigning result of a
+        return "complete"  # added to remove error "assigning result of a
         # function call where the function has no return value"
 
     def ship_animation(self):
@@ -67,19 +62,19 @@ class Intro():
         then calls the door animation
         """
         display_clear()
-        print(ASCII_SHIP_1)
+        print(art.ASCII_SHIP_1)
         time.sleep(0.3)
         display_clear()
-        print(ASCII_SHIP_2)
+        print(art.ASCII_SHIP_2)
         time.sleep(0.3)
         display_clear()
-        print(ASCII_SHIP_3)
+        print(art.ASCII_SHIP_3)
         time.sleep(0.3)
         display_clear()
-        print(ASCII_SHIP_2)
+        print(art.ASCII_SHIP_2)
         time.sleep(0.3)
         display_clear()
-        print(ASCII_SHIP_1)
+        print(art.ASCII_SHIP_1)
         time.sleep(0.3)
 
     def door_animation(self):
@@ -89,10 +84,10 @@ class Intro():
         """
         display_clear()
         time.sleep(1)
-        print(ASCII_DOOR_1)
+        print(art.ASCII_DOOR_1)
         time.sleep(1)
         display_clear()
-        print(ASCII_DOOR_2)
+        print(art.ASCII_DOOR_2)
         time.sleep(1)
         type_slowly(".......................hello?.....................\n")
         time.sleep(1)
@@ -140,9 +135,9 @@ class Intro():
         types battle ships
         """
         display_clear()
-        print(ASCII_BATTLE)
+        print(art.ASCII_BATTLE)
         time.sleep(0.8)
-        print(ASCII_SHIPS)
+        print(art.ASCII_SHIPS)
         input("Hit any key to continue \n")
         display_clear()
         PlayGame()
@@ -152,12 +147,12 @@ class Intro():
         displays the rules to the user
         """
         display_clear()
-        print(ASCII_RULES)
+        print(art.ASCII_RULES)
         print("rules to go here")
         cont = input("Type 'Y' to continue\n").upper()
         while cont != 'Y':
             display_clear()
-            print(ASCII_RULES)
+            print(art.ASCII_RULES)
             print("rules to go here")
             print("You didn't type 'Y'\n")
             cont = input("Type 'Y' to continue \n").upper()
@@ -185,11 +180,11 @@ class Intro():
         type_slowly(f"Welcome aboard {username}")
         time.sleep(1)
         display_clear()
-        print(ASCII_LETS)
+        print(art.ASCII_LETS)
         time.sleep(0.8)
-        print(ASCII_HUNT)
+        print(art.ASCII_HUNT)
         time.sleep(0.8)
-        print(ASCII_PIRATES)
+        print(art.ASCII_PIRATES)
         time.sleep(0.8)
         self.battle_ship_animation()
 
@@ -198,14 +193,14 @@ def end_game_lose():
     """
     plays losing sequence
     """
-    print(ASCII_GAME)
+    print(art.ASCII_GAME)
     time.sleep(0.5)
-    print(ASCII_OVER)
+    print(art.ASCII_OVER)
     time.sleep(0.5)
     display_clear()
-    print(ASCII_YOU)
+    print(art.ASCII_YOU)
     time.sleep(0.5)
-    print(ASCII_LOSE)
+    print(art.ASCII_LOSE)
     time.sleep(3)
     Intro()
 
@@ -214,13 +209,13 @@ def end_game_win():
     """
     plays losing sequence
     """
-    print(ASCII_GAME)
+    print(art.ASCII_GAME)
     time.sleep(0.5)
-    print(ASCII_OVER)
+    print(art.ASCII_OVER)
     time.sleep(0.5)
     display_clear()
-    print(ASCII_YOU)
+    print(art.ASCII_YOU)
     time.sleep(0.5)
-    print(ASCII_WIN)
+    print(art.ASCII_WIN)
     time.sleep(3)
     Intro()
