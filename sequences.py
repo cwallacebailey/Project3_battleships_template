@@ -1,9 +1,9 @@
 """ Module houses visual sequences such as intro """
 
 import time
-from game import PlayGame
 from python.general_functions import type_slowly, display_clear
 import python.ascii as art
+from game import PlayGame
 
 
 class Intro():

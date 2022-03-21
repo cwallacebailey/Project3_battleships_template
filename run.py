@@ -1,5 +1,5 @@
 """ run program from here """
 
-from sequences import Intro
+from python.sequences import Intro
 
 Intro()
