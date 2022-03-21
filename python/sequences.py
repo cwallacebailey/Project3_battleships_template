@@ -1,15 +1,14 @@
 """ Module houses visual sequences such as intro """
 
 import time
-from general_functions import type_slowly, display_clear
-from ascii import ASCII_OPENING_PAGE, ASCII_BATTLE, ASCII_SHIPS
-from ascii import ASCII_RULES, ASCII_WIN
-from ascii import ASCII_LETS, ASCII_HUNT, ASCII_PIRATES
-from ascii import ASCII_SHIP_1, ASCII_SHIP_2, ASCII_SHIP_3
-from ascii import ASCII_DOOR_1, ASCII_DOOR_2
-from ascii import ASCII_GAME, ASCII_OVER, ASCII_YOU, ASCII_LOSE
-
-Username = []
+from python.general_functions import type_slowly, display_clear
+from python.ascii import ASCII_OPENING_PAGE, ASCII_BATTLE, ASCII_SHIPS
+from python.ascii import ASCII_RULES, ASCII_WIN
+from python.ascii import ASCII_LETS, ASCII_HUNT, ASCII_PIRATES
+from python.ascii import ASCII_SHIP_1, ASCII_SHIP_2, ASCII_SHIP_3
+from python.ascii import ASCII_DOOR_1, ASCII_DOOR_2
+from python.ascii import ASCII_GAME, ASCII_OVER, ASCII_YOU, ASCII_LOSE
+from python.game import PlayGame
 
 
 class Intro():
@@ -35,17 +34,17 @@ class Intro():
         display_clear()
         answers = ['R', 'P', 'S']
         print(ASCII_OPENING_PAGE)
-        type_slowly("Ready to play? Type 'P' then return")
-        type_slowly("To see the rules type 'R' then return\n")
-        type_slowly("To skip the intro type 'S' then the return key")
+        type_slowly(" Ready to play? Type 'P' then return")
+        type_slowly(" To see the rules type 'R' then return\n")
+        type_slowly("          To skip the intro type 'S' then the return key")
         answer = input("\n").upper()
         while answer not in answers:
             display_clear()
             print(ASCII_OPENING_PAGE)
-            type_slowly("lets try that again\n")
-            type_slowly("Ready to play? Type 'P' then return\n")
-            type_slowly("To see the rules type 'R' then return\n")
-            type_slowly("To skip the intro type 'S' then the return key")
+            type_slowly("  lets try that again\n")
+            type_slowly(" Ready to play? Type 'P' then return\n")
+            type_slowly(" To see the rules type 'R' then return\n")
+            type_slowly("          To skip the intro type 'S' then the return key")
             answer = input("\n").upper()
         if answer == 'P':
             display_clear()
@@ -97,10 +96,10 @@ class Intro():
         time.sleep(1)
         type_slowly(".......................hello?.....................\n")
         time.sleep(1)
-        type_slowly("..............is...is anybody there?.................\n")
+        type_slowly("..............is...is anybody there?...............\n")
         time.sleep(0.5)
         type_slowly(".............I'm locked aboard this ship............\n")
-        type_slowly("................In the captains quarters..............\n")
+        type_slowly("................In the captains quarters............\n")
         time.sleep(0.5)
         type_slowly("........................I think.....................\n")
         time.sleep(0.5)
@@ -118,7 +117,7 @@ class Intro():
         type_slowly("Hello there.\n")
         type_slowly("Welcome aboard, our first mate has been kidnapped. \n")
         type_slowly("To make things worse between us and them is a fleet of")
-        type_slowly("pirate vessels.\nWe could use every able hand.")
+        type_slowly(" pirate vessels.\nWe could use every able hand.")
         type_slowly(" Will you help us rescue them? \n")
         type_slowly("Type 'Y' to help or 'N' to return to the main menu")
         self.answer = input("\n").upper()
@@ -146,7 +145,7 @@ class Intro():
         print(ASCII_SHIPS)
         input("Hit any key to continue \n")
         display_clear()
-        # PlayGame()
+        PlayGame()
 
     def rules(self):
         """
