@@ -9,7 +9,7 @@ class ShipDamage():
 
     def __init__(self, board):
         self.board = board
-        self.destroyer_destroyed = self.destroyer_destroyed
+        self.destroyer_destroyed = False
         self.battleship_destroyed = self.battleship_destroyed
         self.ship_destroyed = self.ship_destroyed
         self.friggot_destroyed = self.friggot_destroyed
@@ -54,5 +54,5 @@ class ShipDamage():
         if self.friggot == 0 and self.friggot_destroyed is False:
             print("That's the friggot down")
             friggot_destroyed = True
-        return(destroyer_destroyed, battleship_destroyed,
-               ship_destroyed, friggot_destroyed)
+        return(self.destroyer_destroyed, self.battleship_destroyed,
+               self.ship_destroyed, self.friggot_destroyed)
