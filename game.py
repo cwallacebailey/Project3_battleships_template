@@ -134,4 +134,3 @@ class PlayGame():
             update_board[row][col] = chr(9410)
             print(" "*23, "They missed us!! Carry on lads!")
             self.take_guess()
-
