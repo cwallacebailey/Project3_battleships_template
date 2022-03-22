@@ -1,5 +1,7 @@
 """ module to see update ship damage """
 
+from general_functions import splice_fleet
+
 
 class ShipDamage():
     """
@@ -7,12 +9,9 @@ class ShipDamage():
     on the board passed to it
     """
 
-    def __init__(self, board):
+    def __init__(self, board, fleet):
         self.board = board
-        self.destroyer_destroyed = False
-        self.battleship_destroyed = self.battleship_destroyed
-        self.ship_destroyed = self.ship_destroyed
-        self.friggot_destroyed = self.friggot_destroyed
+        self.fleet = fleet
         self.destroyer = 0
         self.battleship = 0
         self.ship = 0
@@ -42,17 +41,16 @@ class ShipDamage():
         ensures that each ship
         can only be destroyed once
         """
-        if self.destroyer == 0 and self.destroyer_destroyed is False:
+        if self.destroyer == 0 and self.destroyer in self.fleet:
             print("The destroyer's been destroyed")
-            destroyer_destroyed = True
-        if self.battleship == 0 and self.battleship_destroyed is False:
+            splice_fleet(self.fleet, "destroyer")
+        if self.battleship == 0 and self.battleship in self.fleet:
             print("That's the battleship gone")
-            battleship_destroyed = True
-        if self.ship == 0 and self.ship_destroyed is False:
+            splice_fleet(self.fleet, "battleship")
+        if self.ship == 0 and self.ship in self.fleet:
             print("That's the battleship gone")
-            ship_destroyed = True
-        if self.friggot == 0 and self.friggot_destroyed is False:
+            splice_fleet(self.ship, "ship")
+        if self.friggot == 0 and self.friggot in self.fleet:
             print("That's the friggot down")
-            friggot_destroyed = True
-        return(self.destroyer_destroyed, self.battleship_destroyed,
-               self.ship_destroyed, self.friggot_destroyed)
+            splice_fleet(self.ship, "ship")
+        return self.fleet
