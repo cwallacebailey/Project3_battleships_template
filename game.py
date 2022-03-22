@@ -114,8 +114,9 @@ class PlayGame():
         display_clear()
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
+            board[row][col] = "."
             print("\n", " "*20, "direct hit, well done")
-            ShipDamage(board, self.computer_fleet)
+            ShipDamage(self.computer_board, self.computer_fleet, "computer")
             self.computer_guess()
         else:
             update_board[row][col] = chr(9410)
@@ -133,12 +134,9 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print(" "*18, "One of our ships has been hit!")
-            ShipDamage(board, self.user_fleet)
+            ShipDamage(board, self.user_fleet, "user")
             self.take_guess()
         else:
             update_board[row][col] = chr(9410)
             print(" "*23, "They missed us!! Carry on lads!")
             self.take_guess()
-
-
-PlayGame()
