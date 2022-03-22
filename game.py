@@ -6,10 +6,12 @@ import random
 import time
 from python.general_functions import display_clear
 from python.board import CreateBoard, BoardFormat
-from python.ships_destroyed import ShipDamage
+from ships_destroyed import ShipDamage
 
 user_board = CreateBoard().board
+user_fleet = CreateBoard().ships
 computer_board = CreateBoard().board
+computer_fleet = CreateBoard().ships
 guess_board = CreateBoard().hidden_board
 
 
@@ -24,6 +26,8 @@ class PlayGame():
         self.user_board = user_board
         self.computer_board = computer_board
         self.guess_board = guess_board
+        self.user_fleet = user_fleet
+        self.computer_fleet = computer_fleet
         self.com_row = None
         self.com_col = None
         self.take_user_guess = self.take_guess()
@@ -111,7 +115,8 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print("\n", " "*20, "direct hit, well done")
-            ShipDamage(board)
+            ShipDamage(board, self.computer_fleet)
+            self.computer_guess()
         else:
             update_board[row][col] = chr(9410)
             print("\n", " "*31, "Miss")
@@ -128,9 +133,12 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print(" "*18, "One of our ships has been hit!")
-            ShipDamage(board)
-
+            ShipDamage(board, self.user_fleet)
+            self.take_guess()
         else:
             update_board[row][col] = chr(9410)
             print(" "*23, "They missed us!! Carry on lads!")
             self.take_guess()
+
+
+PlayGame()

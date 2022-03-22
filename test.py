@@ -29,5 +29,5 @@ def remove(array):
     else:
         print("its gone")
 
-remove(fleet)
-remove(fleet)
+fleet = CreateBoard().ships
+print(fleet)

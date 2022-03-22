@@ -29,11 +29,11 @@ def type_slowly(text):
         time.sleep(0.02)
 
 
-def splice_fleet(fleet, key):
+def splice_fleet(array, key):
     """
     called to remove specific item
     from array, specifically used
     to remove ships from player/ computer fleet
     """
-    fleet.remove(key)
-    return fleet
+    array.remove(key)
+    return array

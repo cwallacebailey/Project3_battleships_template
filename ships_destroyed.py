@@ -1,6 +1,6 @@
 """ module to see update ship damage """
 
-from general_functions import splice_fleet
+from python.general_functions import splice_fleet
 
 
 class ShipDamage():
