@@ -45,16 +45,16 @@ class ShipDamage():
         can only be destroyed once
         """
         if self.destroyer == 0 and chr(8517) in self.fleet:
-            print("\n                         The destroyer's been destroyed")
+            print("\n            The destroyer's been destroyed")
             self.splice_fleet(self.fleet, chr(8517))
         if self.battleship == 0 and chr(8486) in self.fleet:
-            print("\n                         That's the battleship gone")
+            print("\n            That's the battleship gone")
             self.splice_fleet(self.fleet, chr(8486))
         if self.ship == 0 and chr(8492) in self.fleet:
-            print("\n                         That's the battleship gone")
+            print("\n            That's the battleship gone")
             self.splice_fleet(self.fleet, chr(8492))
         if self.friggot == 0 and chr(8497) in self.fleet:
-            print("\n                         That's the friggot down")
+            print("\n            That's the friggot down")
             self.splice_fleet(self.fleet, chr(8497))
         time.sleep(1)
         self.game_result()
@@ -77,7 +77,7 @@ class ShipDamage():
         check = self.destroyer + self.battleship + self.ship + self.friggot
         if check == 0:
             if self.turn == "computer":
-                print("                          That was our last ship!!")
+                print("            That was our last ship!!")
                 time.sleep(0.5)
                 display_clear()
                 print(art.ASCII_GAME)
@@ -91,7 +91,7 @@ class ShipDamage():
                 time.sleep(3)
 
             else:
-                print("                          That was their last ship!!!")
+                print("            That was their last ship!!!")
                 time.sleep(0.5)
                 display_clear()
                 print(art.ASCII_GAME)
