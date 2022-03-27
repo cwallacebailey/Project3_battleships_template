@@ -90,7 +90,6 @@ class PlayGame():
         """
         Checks if a ship is at the guess location
         """
-        print("checking guess")
         if board[row][col] == chr(9410):
             display_clear()
             print(" "*12, "We shot there before, try another coordinate")
