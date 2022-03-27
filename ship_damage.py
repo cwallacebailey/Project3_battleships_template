@@ -3,7 +3,7 @@
 import time
 import python.ascii as art
 from python.general_functions import display_clear
-from sequences import Intro
+from intro import Intro
 
 
 class ShipDamage():
