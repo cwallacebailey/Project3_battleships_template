@@ -1,10 +1,10 @@
 """ run program from here """
 
-from sequences import Intro
+from intro import Intro
 from game import PlayGame
 
 
-def run_game():
+def run():
     """
     calls the key classes
     to play the game
@@ -12,4 +12,5 @@ def run_game():
     Intro()
     PlayGame()
 
-run_game()
+
+run()

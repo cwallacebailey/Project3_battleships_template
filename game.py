@@ -47,11 +47,11 @@ class PlayGame():
         check_list = ['1', '2', '3', '4', '5', '6', '7', '8']
         self.row = input('\n                  Enter a row between 1 and 8: ')
         while self.row not in check_list:
-            print(" "*12, 'Please enter a valid row \n')
+            print(" "*17, 'Please enter a valid row \n')
             self.row = input('                  Enter a row between 1 and 8: ')
         self.col = input('                  Enter a Column between 1 and 8: ')
         while self.col not in check_list:
-            print(" "*12, 'Please enter a valid column\n')
+            print(" "*17, 'Please enter a valid column\n')
             self.col = input('               Enter a Column between 1 and 8: ')
         self.row = int(self.row) - 1
         self.col = int(self.col) - 1
@@ -111,12 +111,14 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             board[row][col] = "."
-            print("\n", " "*12, "direct hit, well done")
+            print("\n", " "*18, "direct hit, well done")
             ShipDamage(self.computer_board, self.computer_fleet, "user")
+            time.sleep(0.5)
             self.computer_guess()
         else:
             update_board[row][col] = chr(9410)
-            print("\n", " "*12, "Miss")
+            print("\n", " "*18, "Miss")
+            time.sleep(0.5)
             self.computer_guess()
 
     def computer_check_hit(self, row, col, board, update_board):
@@ -124,17 +126,17 @@ class PlayGame():
         Checks if a ship is at the computer guess coordinates
         """
         time.sleep(0.5)
-        print(" "*12, "They're getting ready to shoot!!")
+        print(" "*18, "They're getting ready to shoot!!")
         time.sleep(0.5)
         display_clear()
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
-            print(" "*12, "One of our ships has been hit!")
+            print(" "*18, "One of our ships has been hit!")
             time.sleep(0.5)
             ShipDamage(board, self.user_fleet, "computer")
             self.take_guess()
         else:
             update_board[row][col] = chr(9410)
-            print(" "*12, "They missed us!! Carry on lads!")
+            print(" "*18, "They missed us!! Carry on lads!")
             time.sleep(0.5)
             self.take_guess()

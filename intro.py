@@ -35,7 +35,7 @@ class Intro():
                 To skip the intro type 'S' then the return key
             """
         )
-        answer = input("\n                                       ").upper()
+        answer = input("                                       ").upper()
         while answer not in answers:
             display_clear()
             print(art.ASCII_OPENING_PAGE)
@@ -48,7 +48,7 @@ class Intro():
                     To skip the intro type 'S' then the return key
                 """
             )
-            answer = input("\n                                       ").upper()
+            answer = input("                                       ").upper()
         if answer == 'P':
             display_clear()
             print("\n")
