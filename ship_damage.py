@@ -2,7 +2,7 @@
 
 import time
 import python.ascii as art
-from python.general_functions import splice_fleet, display_clear
+from python.general_functions import display_clear
 
 
 class ShipDamage():
@@ -45,30 +45,39 @@ class ShipDamage():
         can only be destroyed once
         """
         if self.destroyer == 0 and chr(8517) in self.fleet:
-            print("The destroyer's been destroyed")
-            splice_fleet(self.fleet, chr(8517))
+            print("\n                         The destroyer's been destroyed")
+            self.splice_fleet(self.fleet, chr(8517))
         if self.battleship == 0 and chr(8486) in self.fleet:
-            print("That's the battleship gone")
-            splice_fleet(self.fleet, chr(8486))
+            print("\n                         That's the battleship gone")
+            self.splice_fleet(self.fleet, chr(8486))
         if self.ship == 0 and chr(8492) in self.fleet:
-            print("That's the battleship gone")
-            splice_fleet(self.fleet, chr(8492))
+            print("\n                         That's the battleship gone")
+            self.splice_fleet(self.fleet, chr(8492))
         if self.friggot == 0 and chr(8497) in self.fleet:
-            print("That's the friggot down")
-            splice_fleet(self.fleet, chr(8497))
+            print("\n                         That's the friggot down")
+            self.splice_fleet(self.fleet, chr(8497))
+        time.sleep(1)
         self.game_result()
         return self.fleet
+
+    def splice_fleet(self, array, key):
+        """
+        called to remove specific item
+        from array, specifically used
+        to remove ships from player/ computer fleet
+        """
+        array.remove(key)
+        return array
 
     def game_result(self):
         """
         checks if any ships left
         if so ends the game
         """
-        print(self.turn)
         check = self.destroyer + self.battleship + self.ship + self.friggot
         if check == 0:
             if self.turn == "computer":
-                print("That was our last ship!!")
+                print("                          That was our last ship!!")
                 time.sleep(0.5)
                 display_clear()
                 print(art.ASCII_GAME)
@@ -80,11 +89,9 @@ class ShipDamage():
                 time.sleep(0.5)
                 print(art.ASCII_LOSE)
                 time.sleep(3)
-                game_over = True
-                return game_over
 
             else:
-                print("That was their last ship!!!")
+                print("                          That was their last ship!!!")
                 time.sleep(0.5)
                 display_clear()
                 print(art.ASCII_GAME)
@@ -96,7 +103,6 @@ class ShipDamage():
                 time.sleep(0.5)
                 print(art.ASCII_WIN)
                 time.sleep(3)
-                game_over = True
-                return game_over
+
         else:
             return self.fleet

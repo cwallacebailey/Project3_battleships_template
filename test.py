@@ -1,21 +1,19 @@
 """ testing module"""
-from python.board import CreateBoard
-from ship_damage import ShipDamage
+from python.general_functions import type_slowly
 
-user_board = CreateBoard().board
-user_fleet = CreateBoard().ships
+type_slowly(
+            """
+                \n
+                        I'm sorry, I can't make sense of what you said....
+                        Could you try again?
+                        Type 'Y' to join us, 'N' to return to the main menu
+                \n
 
-def game_result(turn):
-    """
-    checks if any ships left
-    if so ends the game
-    """
-    check = 0
-    if check == 0:
-        if turn == "computer":
-            print("That was our last ship!!")
-            game_over = True
-            return game_over
+            """
+)
 
-go = game_result("computer")
-print(go)
+
+            type_slowly("\n                  I'm sorry, I can't make sense of")
+            type_slowly(" what you said")
+            type_slowly("\n             could you try again?\n")
+            type_slowly("Type 'Y' to join us, 'N' to return to the main menu")

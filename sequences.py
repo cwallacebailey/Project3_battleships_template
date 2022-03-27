@@ -29,21 +29,32 @@ class Intro():
         display_clear()
         answers = ['R', 'P', 'S']
         print(art.ASCII_OPENING_PAGE)
-        type_slowly(" Ready to play? Type 'P' then return")
-        type_slowly(" To see the rules type 'R' then return\n")
-        type_slowly("          To skip the intro type 'S' then the return key")
-        answer = input("\n                                   ").upper()
+        type_slowly(
+            """
+            \n
+                Ready to play? Type 'P' then return
+                To see the rules type 'R' then return
+                To skip the intro type 'S' then the return key
+            """
+        )
+        answer = input("\n                                       ").upper()
         while answer not in answers:
             display_clear()
             print(art.ASCII_OPENING_PAGE)
-            type_slowly("  lets try that again\n")
-            type_slowly(" Ready to play? Type 'P' then return\n")
-            type_slowly(" To see the rules type 'R' then return\n")
-            type_slowly("      To skip the intro type 'S' then the return key")
-            answer = input("\n                                   ").upper()
+            type_slowly(
+                """
+                \n
+                    Lets try that again
+                    Ready to play? Type 'P' then return
+                    To see the rules type 'R' then return
+                    To skip the intro type 'S' then the return key
+                """
+            )
+            answer = input("\n                                       ").upper()
         if answer == 'P':
             display_clear()
-            type_slowly("......................Somewhere on the seven seas")
+            print("\n")
+            type_slowly(".........................Somewhere on the seven seas")
             time.sleep(0.5)
             for _ in range(3):
                 self.ship_animation()
@@ -109,20 +120,32 @@ class Intro():
         answers = ['Y', 'N']
         display_clear()
         time.sleep(1)
-        type_slowly("\n                  Hello there.            \n")
-        type_slowly("Welcome aboard, our first mate has been kidnapped. \n")
-        type_slowly("To make things worse between us and them is a fleet of")
-        type_slowly(" pirate vessels. \n      We could use every able hand,")
-        type_slowly("available")
-        type_slowly("           Will you help us rescue them? \n")
-        type_slowly("   Type 'Y' to help or 'N' to return to the main menu")
-        self.answer = input("\n                      ").upper()
+        type_slowly(
+            """
+            \n
+            Hello there.
+            Welcome aboard, our first mate has been kidnapped.
+            To make things worse between us and them is a fleet of pirate ships
+            We could use every available able hand in the coming battle.
+            Will you help us rescue them?
+            \n
+            Type 'Y' to help or 'N' to return to the safety of the main menu.
+            \n
+            """
+            )
+        self.answer = input("\n            ").upper()
         while self.answer not in answers:
             display_clear()
-            type_slowly("\n I'm sorry, I can't make sense of what you said,\n")
-            type_slowly("             could you try again?\n")
-            type_slowly("Type 'Y' to join us, 'N' to return to the main menu")
-            self.answer = input("\n                      ").upper()
+            type_slowly(
+                """
+                \n
+                        I'm sorry, I can't make sense of what you said....
+                        Could you try again?
+                        Type 'Y' to join us, 'N' to return to the main menu
+                \n
+                """
+            )
+            self.answer = input("\n            ").upper()
         if self.answer == "Y":
             display_clear()
             self.collect_username()
@@ -138,7 +161,7 @@ class Intro():
         print(art.ASCII_BATTLE)
         time.sleep(0.8)
         print(art.ASCII_SHIPS)
-        input("                             Hit any key to continue \n")
+        input("            Hit any key to continue \n")
         display_clear()
         PlayGame()
 
@@ -168,16 +191,24 @@ class Intro():
         if spaces are given the user is asked again
         """
         display_clear()
-        type_slowly("Thanks for joining the hunt, before we commence, ")
-        type_slowly("what's your name stranger")
-        username = input("? \n")
+        type_slowly(
+            """
+            Thanks for joining the hunt, before we commence,
+            what's your name stranger
+            """
+        )
+        username = input("?            \n")
         while len(username.strip(" ")) == 0:
             display_clear()
-            type_slowly("...the silent type are we? I'm going to")
-            type_slowly(" need a name to start. Now what is it?")
-            username = input("\n")
+            type_slowly(
+                """
+                ...The silent type are we? I'm going to need to know what to
+                call you so what's your name
+                """
+                )
+            username = input("?            \n")
         display_clear()
-        type_slowly(f"Welcome aboard {username}")
+        type_slowly(f"            Welcome aboard {username}")
         time.sleep(1)
         display_clear()
         print(art.ASCII_LETS)
@@ -188,35 +219,3 @@ class Intro():
         print(art.ASCII_PIRATES)
         time.sleep(0.8)
         self.battle_ship_animation()
-
-
-def end_game_lose():
-    """
-    plays losing sequence
-    """
-    print(art.ASCII_GAME)
-    time.sleep(0.5)
-    print(art.ASCII_OVER)
-    time.sleep(0.5)
-    display_clear()
-    print(art.ASCII_YOU)
-    time.sleep(0.5)
-    print(art.ASCII_LOSE)
-    time.sleep(3)
-    Intro()
-
-
-def end_game_win():
-    """
-    plays losing sequence
-    """
-    print(art.ASCII_GAME)
-    time.sleep(0.5)
-    print(art.ASCII_OVER)
-    time.sleep(0.5)
-    display_clear()
-    print(art.ASCII_YOU)
-    time.sleep(0.5)
-    print(art.ASCII_WIN)
-    time.sleep(3)
-    Intro()
