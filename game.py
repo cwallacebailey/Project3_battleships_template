@@ -45,14 +45,14 @@ class PlayGame():
         """
         self.display()
         check_list = ['1', '2', '3', '4', '5', '6', '7', '8']
-        self.row = input('\n            Enter a row between 1 and 8: ')
+        self.row = input('\n                  Enter a row between 1 and 8: ')
         while self.row not in check_list:
             print(" "*12, 'Please enter a valid row \n')
-            self.row = input('            Enter a row between 1 and 8: ')
-        self.col = input('            Enter a Column between 1 and 8: ')
+            self.row = input('                  Enter a row between 1 and 8: ')
+        self.col = input('                  Enter a Column between 1 and 8: ')
         while self.col not in check_list:
             print(" "*12, 'Please enter a valid column\n')
-            self.col = input('            Enter a Column between 1 and 8: ')
+            self.col = input('               Enter a Column between 1 and 8: ')
         self.row = int(self.row) - 1
         self.col = int(self.col) - 1
         self.check_guess(self.row, self.col, self.guess_board)

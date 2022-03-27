@@ -3,7 +3,6 @@
 import time
 from python.general_functions import type_slowly, display_clear
 import python.ascii as art
-from game import PlayGame
 
 
 class Intro():
@@ -31,7 +30,6 @@ class Intro():
         print(art.ASCII_OPENING_PAGE)
         type_slowly(
             """
-            \n
                 Ready to play? Type 'P' then return
                 To see the rules type 'R' then return
                 To skip the intro type 'S' then the return key
@@ -107,7 +105,7 @@ class Intro():
         type_slowly(".............I'm locked aboard this ship..........\n")
         type_slowly("...............In the captains quarters...........\n")
         time.sleep(0.5)
-        type_slowly("........................I think...................\n")
+        type_slowly(".......................I think....................\n")
         time.sleep(0.5)
         type_slowly("...........I'm in desperate need of rescue........\n")
         time.sleep(1)
@@ -128,12 +126,11 @@ class Intro():
             To make things worse between us and them is a fleet of pirate ships
             We could use every available able hand in the coming battle.
             Will you help us rescue them?
-            \n
             Type 'Y' to help or 'N' to return to the safety of the main menu.
             \n
             """
             )
-        self.answer = input("\n            ").upper()
+        self.answer = input("            ").upper()
         while self.answer not in answers:
             display_clear()
             type_slowly(
@@ -145,7 +142,7 @@ class Intro():
                 \n
                 """
             )
-            self.answer = input("\n            ").upper()
+            self.answer = input("            ").upper()
         if self.answer == "Y":
             display_clear()
             self.collect_username()
@@ -163,7 +160,6 @@ class Intro():
         print(art.ASCII_SHIPS)
         input("            Hit any key to continue \n")
         display_clear()
-        PlayGame()
 
     def rules(self):
         """
@@ -172,16 +168,16 @@ class Intro():
         display_clear()
         print(art.ASCII_RULES)
         print("rules to go here")
-        cont = input("Type 'Y' to continue\n").upper()
+        cont = input("            Type 'Y' to continue\n").upper()
         while cont != 'Y':
             display_clear()
             print(art.ASCII_RULES)
             print("rules to go here")
-            print("You didn't type 'Y'\n")
-            cont = input("Type 'Y' to continue \n").upper()
+            print("            You didn't type 'Y'\n")
+            cont = input("            Type 'Y' to continue \n").upper()
         display_clear()
         print("rules to go here 2")
-        input("Type any key and hit enter to return to the main menu \n")
+        input("            Hit enter to return to the main menu \n")
         self.opening_menu()
 
     def collect_username(self):
@@ -194,19 +190,19 @@ class Intro():
         type_slowly(
             """
             Thanks for joining the hunt, before we commence,
-            what's your name stranger
+            what's your name stranger?
             """
         )
-        username = input("?            \n")
+        username = input("            ")
         while len(username.strip(" ")) == 0:
             display_clear()
             type_slowly(
                 """
                 ...The silent type are we? I'm going to need to know what to
-                call you so what's your name
+                call you so what's your name?
                 """
                 )
-            username = input("?            \n")
+            username = input("            ")
         display_clear()
         type_slowly(f"            Welcome aboard {username}")
         time.sleep(1)
