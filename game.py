@@ -6,7 +6,7 @@ import random
 import time
 from python.general_functions import display_clear
 from python.board import CreateBoard, BoardFormat
-from ships_destroyed import ShipDamage
+from ship_damage import ShipDamage
 
 user_board = CreateBoard().board
 user_fleet = CreateBoard().ships
@@ -48,14 +48,14 @@ class PlayGame():
         self.row = input('\n                          Enter a row between 1 and 8: \
             \n                                        ')
         while self.row not in check_list:
-            print(" "*20, 'Please enter a valid row \n')
+            print(" "*26, 'Please enter a valid row \n')
             self.row = input('                          Enter a row between 1 and 8: \
             \n                                        ')
-        self.col = input('                         Enter a Column between 1 and 8: \
+        self.col = input('                          Enter a Column between 1 and 8: \
             \n                                        ')
         while self.col not in check_list:
-            print(" "*20, 'Please enter a valid column\n')
-            self.col = input('                         Enter a Column between 1 and 8: \
+            print(" "*26, 'Please enter a valid column\n')
+            self.col = input('                          Enter a Column between 1 and 8: \
             \n                                        ')
         self.row = int(self.row) - 1
         self.col = int(self.col) - 1
@@ -116,11 +116,11 @@ class PlayGame():
             update_board[row][col] = chr(128369)
             board[row][col] = "."
             print("\n", " "*20, "direct hit, well done")
-            ShipDamage(self.computer_board, self.computer_fleet, "computer")
+            ShipDamage(self.computer_board, self.computer_fleet, "user")
             self.computer_guess()
         else:
             update_board[row][col] = chr(9410)
-            print("\n", " "*31, "Miss")
+            print("\n", " "*35, "Miss")
             self.computer_guess()
 
     def computer_check_hit(self, row, col, board, update_board):
@@ -134,7 +134,7 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             print(" "*18, "One of our ships has been hit!")
-            ShipDamage(board, self.user_fleet, "user")
+            ShipDamage(board, self.user_fleet, "computer")
             self.take_guess()
         else:
             update_board[row][col] = chr(9410)

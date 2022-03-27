@@ -1,33 +1,21 @@
 """ testing module"""
-
 from python.board import CreateBoard
+from ship_damage import ShipDamage
 
-fleet = CreateBoard().ships
-destroyer = chr(8517)
-battleship = chr(8486)
-ship = chr(8492)
-friggot = chr(8497)
+user_board = CreateBoard().board
+user_fleet = CreateBoard().ships
 
-
-def splice_fleet(array, key):
+def game_result(turn):
     """
-    called to remove specific item
-    from array, specifically used
-    to remove ships from player/ computer fleet
+    checks if any ships left
+    if so ends the game
     """
-    array.remove(key)
-    return array
+    check = 0
+    if check == 0:
+        if turn == "computer":
+            print("That was our last ship!!")
+            game_over = True
+            return game_over
 
-
-def remove(array):
-    """
-    .
-    """
-    if destroyer in array:
-        splice_fleet(array, destroyer)
-        print(array)
-    else:
-        print("its gone")
-
-fleet = CreateBoard().ships
-print(fleet)
+go = game_result("computer")
+print(go)
