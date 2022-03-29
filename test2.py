@@ -14,9 +14,7 @@ coordinates.append(com_col)
 coordinates.append(com_row)
 
 go = random.randint(0, 3)
-possible_locations = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+possible_locations = []
 
-x = random.randint(0, 10)
-print(x)
-go = 0 < x < board_size
+go = len(possible_locations)
 print(go)
