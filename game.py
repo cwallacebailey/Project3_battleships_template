@@ -206,5 +206,3 @@ class PlayGame():
                 if board[r][c] not in check_list:
                     coordinate = str(r) + str(c)
                     self.array.append(coordinate)
-
-PlayGame()
