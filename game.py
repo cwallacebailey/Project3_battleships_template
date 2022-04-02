@@ -120,7 +120,7 @@ class PlayGame():
             self.computer_guess()
         else:
             update_board[row][col] = chr(9410)
-            print(" "*17, "Miss")
+            print(" "*18, "Miss")
             time.sleep(0.5)
             self.computer_guess()
 
@@ -140,6 +140,6 @@ class PlayGame():
             self.take_guess()
         else:
             update_board[row][col] = chr(9410)
-            print(" "*18, "They missed us!! Carry on lads!")
+            print(" "*18, "They missed us!! Carry on shooting!")
             time.sleep(0.5)
             self.take_guess()

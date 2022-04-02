@@ -119,16 +119,11 @@ class PlayGame():
         """
         picks and ensures that this is not outside the board range
         """
-        if len(self.target) != 0:
-            select_next_coordinate = random.randint(0, len(self.target)-1)  # create random number between 0 and array length
-            next_coordinate = self.target[random.randint(0, len(self.target)-1)]  # retrieve array item that corresponds to selection
-            del self.target[select_next_coordinate]  # remove choice from array
-            self.com_col = self.coordinates[1] + next_coordinate[-1]  # update com_col with new item from array of possible next hits
-            self.com_row = self.coordinates[0] + next_coordinate[0]  # update com_row with new item from array of possible next hits
-            print(f"trying {self.com_col} {self.com_row}")
-            self.hit_success()
-        else:
-            self.computer_guess()
+        for r in range(self.board_size):
+            for c in range(self.board_size): 
+                if self.computer_board[r][c] != "." and self.computer_board[r][c] != chr(9410)
+                print(r,c)
+
 
     def hit(self):
         """
