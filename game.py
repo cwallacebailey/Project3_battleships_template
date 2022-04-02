@@ -44,7 +44,7 @@ class PlayGame():
         a young fleet with a young, inexperienced commander. The battle
         will be EASY but there will be no honour in it. Or we can face
         a significantly more experienced fighting commander. The battle
-        will be tough but your name will be known across the seven seas
+        will be HARD but your name will be known across the seven seas
         What will it be?
         Should we face off against the greater of the two opponents?
         Type 'Y' if so or 'N to take the easy route
@@ -58,9 +58,19 @@ class PlayGame():
             display_clear()
             print("""
         didn't understand that, I'll say it again""", speech)
-            answer = input("    ").upper()
+            answer = input("       ").upper()
         if answer == 'Y':
             self.hardmode = True
+            type_slowly("""
+        Very Nice, we will be world famous
+            """)
+            time.sleep(0.5)
+        else:
+            type_slowly("""
+        Why risk it, lets get our first mate
+        """)
+            time.sleep(0.5)
+        display_clear()
         return self.hardmode
 
     def display(self):
@@ -196,3 +206,5 @@ class PlayGame():
                 if board[r][c] not in check_list:
                     coordinate = str(r) + str(c)
                     self.array.append(coordinate)
+
+PlayGame()
