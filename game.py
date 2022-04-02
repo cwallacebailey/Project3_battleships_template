@@ -22,7 +22,7 @@ class PlayGame():
     or computer victory
     """
     def __init__(self):
-        self.board_size = 8
+        self.board_size = CreateBoard().board_size
         self.user_board = user_board
         self.computer_board = computer_board
         self.guess_board = guess_board
@@ -30,6 +30,7 @@ class PlayGame():
         self.computer_fleet = computer_fleet
         self.com_row = None
         self.com_col = None
+        self.array = []
         self.take_user_guess = self.take_guess()
 
     def display(self):
@@ -68,12 +69,16 @@ class PlayGame():
         passes guess to a check that the guess -
         has not been made before
         """
-        self.com_row = random.randint(0, self.board_size**2 - 1) // \
-            self.board_size
-        self.com_col = random.randint(0, self.board_size**2 - 1) % \
-            self.board_size
-        self.com_row = int(self.com_row)
-        self.com_col = int(self.com_col)
+        if len(self.array) > 0:
+            new_target = self.array[0]
+            self.com_row = int(new_target[0])
+            self.com_col = int(new_target[-1])
+            del self.array[0]
+        else:
+            self.com_row = random.randint(0, self.board_size**2 - 1) // \
+                self.board_size
+            self.com_col = random.randint(0, self.board_size**2 - 1) % \
+                self.board_size
         self.computer_check_guess(self.com_row, self.com_col, self.user_board)
 
     def computer_check_guess(self, row, col, board):
@@ -137,6 +142,7 @@ class PlayGame():
             print(" "*18, "One of our ships has been hit!")
             time.sleep(0.5)
             ShipDamage(board, self.user_fleet, "computer")
+            self.create_comp_targets(row, col, board)
             self.take_guess()
         else:
             update_board[row][col] = chr(9410)
@@ -144,4 +150,17 @@ class PlayGame():
             time.sleep(0.5)
             self.take_guess()
 
-print(CreateBoard().board)
+    def create_comp_targets(self, row, col, board):
+        """
+        Iterates around the successful hit and
+        stores targets for future
+        """
+        check_list = ['.', chr(128369), chr(9410)]
+        for r in range(max(0, row-1), min(self.board_size, row+2)):
+            for c in range(max(0, col-1), min(self.board_size, col+2)):
+                if board[r][c] not in check_list:
+                    coordinate = str(r) + str(c)
+                    self.array.append(coordinate)
+
+
+PlayGame()
