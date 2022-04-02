@@ -12,7 +12,6 @@ def guess(board):
     """
     Initial Guess
     """
-    print("go")
     if len(array) > 0:
         new_target = array[0]
         row = int(new_target[0])

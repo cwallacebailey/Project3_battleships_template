@@ -65,7 +65,6 @@ class ShipDamage():
             self.splice_fleet(self.fleet, chr(8497))
             time.sleep(0.5)
             display_clear()
-        time.sleep(1)
         self.game_result()
         return self.fleet
 

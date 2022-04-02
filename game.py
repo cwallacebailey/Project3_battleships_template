@@ -36,6 +36,7 @@ class PlayGame():
     def display(self):
         """
         prints the board for the user to see
+        by calling the BoardFormat class
         """
         BoardFormat(self.user_board, self.guess_board)
 
@@ -63,6 +64,43 @@ class PlayGame():
         self.check_guess(self.row, self.col, self.guess_board)
         return(self.row, self.col)
 
+    def check_guess(self, row, col, board):
+        """
+        Ensures the user guess has not been made before
+        if not, passes guess to check_hit_or_miss
+        if it has been guessed before computer_guess is called again
+        """
+        if board[row][col] == chr(9410):
+            display_clear()
+            print(" "*12, "We shot there before, try another coordinate")
+            self.take_guess()
+        elif board[row][col] == chr(128369):
+            display_clear()
+            print(" "*12, "We shot there before, try another coordinate")
+            self.take_guess()
+        else:
+            self.check_hit(self.row, self.col, self.computer_board,
+                           self.guess_board)
+
+    def check_hit(self, row, col, board, update_board):
+        """
+        Checks if a ship is at the user guess coordinates
+        if it is it updates the board and calls ShipDamage
+        """
+        display_clear()
+        if board[row][col] != ".":
+            update_board[row][col] = chr(128369)
+            board[row][col] = "."
+            print(" "*18, "direct hit, well done")
+            ShipDamage(self.computer_board, self.computer_fleet, "user")
+            time.sleep(0.5)
+            self.computer_guess()
+        else:
+            update_board[row][col] = chr(9410)
+            print(" "*18, "Miss")
+            time.sleep(0.5)
+            self.computer_guess()
+
     def computer_guess(self):
         """
         Creates a random guess for the computer
@@ -83,7 +121,7 @@ class PlayGame():
 
     def computer_check_guess(self, row, col, board):
         """
-        Ensures the guess has not been made before
+        Ensures the computers guess has not been made before
         if not, passes guess to check_hit_or_miss
         if it has been guessed before computer_guess is called again
         """
@@ -94,40 +132,6 @@ class PlayGame():
         else:
             self.computer_check_hit(self.com_row, self.com_col,
                                     self.user_board, self.user_board)
-
-    def check_guess(self, row, col, board):
-        """
-        Checks if a ship is at the guess location
-        """
-        if board[row][col] == chr(9410):
-            display_clear()
-            print(" "*12, "We shot there before, try another coordinate")
-            self.take_guess()
-        elif board[row][col] == chr(128369):
-            display_clear()
-            print(" "*12, "We shot there before, try another coordinate")
-            self.take_guess()
-        else:
-            self.check_hit(self.row, self.col, self.computer_board,
-                           self.guess_board)
-
-    def check_hit(self, row, col, board, update_board):
-        """
-        Checks if a ship is at the user guess coordinates
-        """
-        display_clear()
-        if board[row][col] != ".":
-            update_board[row][col] = chr(128369)
-            board[row][col] = "."
-            print(" "*18, "direct hit, well done")
-            ShipDamage(self.computer_board, self.computer_fleet, "user")
-            time.sleep(0.5)
-            self.computer_guess()
-        else:
-            update_board[row][col] = chr(9410)
-            print(" "*18, "Miss")
-            time.sleep(0.5)
-            self.computer_guess()
 
     def computer_check_hit(self, row, col, board, update_board):
         """
@@ -152,8 +156,9 @@ class PlayGame():
 
     def create_comp_targets(self, row, col, board):
         """
-        Iterates around the successful hit and
-        stores targets for future
+        Iterates around the successful hit 
+        made by the computer and stores targets 
+        for future turns
         """
         check_list = ['.', chr(128369), chr(9410)]
         for r in range(max(0, row-1), min(self.board_size, row+2)):
@@ -161,6 +166,3 @@ class PlayGame():
                 if board[r][c] not in check_list:
                     coordinate = str(r) + str(c)
                     self.array.append(coordinate)
-
-
-PlayGame()
