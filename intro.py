@@ -41,10 +41,10 @@ class Intro():
             print(art.ASCII_OPENING_PAGE)
             type_slowly(
                 """
-                    Lets try that again
-                    Ready to play? Type 'P' then return
-                    To see the rules type 'R' then return
-                    To skip the intro type 'S' then the return key
+                Lets try that again
+                Ready to play? Type 'P' then return
+                To see the rules type 'R' then return
+                To skip the intro type 'S' then the return key
                 """
             )
             answer = input("    ").upper()
@@ -175,7 +175,8 @@ class Intro():
         us the advantage and if we destroy every last one of them we'll be
         able to sail through onto our objective. If they take out all our
         ships first, well, that's that. Game Over.
-            """)
+            """
+        )
         input("        hit enter to continue").upper()
         display_clear()
         print(
@@ -193,7 +194,8 @@ class Intro():
         hitting all the ships occupied coordinates will blow it up and
         despite the fog when they blow it will show us what we're looking
         at. I can tell you what's been destroyed.
-        """)
+        """
+        )
         input("        Hit enter to return to the main menu")
         self.opening_menu()
 
