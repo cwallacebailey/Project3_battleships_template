@@ -35,7 +35,7 @@ class Intro():
                 To skip the intro type 'S' then the return key
             """
         )
-        answer = input(" ").upper()
+        answer = input("   ").upper()
         while answer not in answers:
             display_clear()
             print(art.ASCII_OPENING_PAGE)
@@ -48,7 +48,7 @@ class Intro():
                     To skip the intro type 'S' then the return key
                 """
             )
-            answer = input(" ").upper()
+            answer = input("   ").upper()
         if answer == 'P':
             display_clear()
             print("\n")
@@ -167,45 +167,39 @@ class Intro():
         """
         display_clear()
         print(art.ASCII_RULES)
-        answer = input("    Type 'Y' to continue\n").upper()
-        while answer != 'Y':
-            display_clear()
-            print(art.ASCII_RULES)
-            print(
+        print(
                 """
-            Tides around these parts are rough, ours and the enemy ships are
-            scattered across the battle ground almost randomly. We can count
-            on two things. First, they wont move during the fight thanks to
-            their anchors. Second, all ships will either be horizontal or
-            vertical to allow for a full broadside attack.
+        Tides around these parts are rough, ours and the enemy ships are
+        scattered across the battle ground almost randomly. We can count
+        on two things. First, they wont move during the fight thanks to
+        their anchors. Second, all ships will either be horizontal or
+        vertical to allow for a full broadside attack.
 
-            Its a sea worthy agreement that we take turns to fire. We'll shoot
-            first as they haven't seen us coming. Hopefully that should give
-            us the advantage and if we destroy every last one of them we'll be
-            able to sail through onto our objective. If they take out all our
-            ships first, well, that's that. Game Over.
-
-            There's heavy mist about, we don't know where their ships are
-            anchored I'll update the map for you to see as we shoot, of our
-            crafts and the enemies.
-
+        Its a sea worthy agreement that we take turns to fire. We'll shoot
+        first as they haven't seen us coming. Hopefully that should give
+        us the advantage and if we destroy every last one of them we'll be
+        able to sail through onto our objective. If they take out all our
+        ships first, well, that's that. Game Over.
             """)
-            print("    You didn't type 'Y'\n")
-            answer = input("    Type 'Y' to continue \n").upper()
+        input("        hit enter to continue").upper()
         display_clear()
         print(
             """
-            It could be a good or bad thing, our fleets are equal
-            we both have:
-                a destroyer  - 4 coordinates in length
-                a battleship - 3 coordinates in length
-                a ship       - also 3 coordinates in length
-                a friggot    - 2 coordinates in length
-            hitting all the ships occupied coordinates will blow it up and
-            despite the fog when they blow it will show us what we're looking
-            at. I can tell you what's been destroyed.
+        There's heavy mist about, we don't know where their ships are
+        anchored I'll update the map for you to see as we shoot, of our
+        crafts and the enemies.
+
+        It could be a good or bad thing but our fleets are equal
+        we both have:
+            a destroyer  - 4 coordinates in length
+            a battleship - 3 coordinates in length
+            a ship       - also 3 coordinates in length
+            a friggot    - 2 coordinates in length
+        hitting all the ships occupied coordinates will blow it up and
+        despite the fog when they blow it will show us what we're looking
+        at. I can tell you what's been destroyed.
         """)
-        input("    Hit enter to return to the main menu \n")
+        input("        Hit enter to return to the main menu \n")
         self.opening_menu()
 
     def collect_username(self):
