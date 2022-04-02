@@ -4,7 +4,7 @@ Main game file
 
 import random
 import time
-from python.general_functions import display_clear
+from python.general_functions import display_clear, type_slowly
 from python.board import CreateBoard, BoardFormat
 from ship_damage import ShipDamage
 
@@ -30,8 +30,38 @@ class PlayGame():
         self.computer_fleet = computer_fleet
         self.com_row = None
         self.com_col = None
+        self.hardmode = False
         self.array = []
+        self.hard_mode_activate = self.hard_mode()
         self.take_user_guess = self.take_guess()
+
+    def hard_mode(self):
+        """
+        Lets the user choose hard or easy mode
+        """
+        speech = """
+        We have two choices here. We can go west towards
+        a young fleet with a young, inexperienced commander. The battle
+        will be EASY but there will be no honour in it. Or we can face
+        a significantly more experienced fighting commander. The battle
+        will be tough but your name will be known across the seven seas
+        What will it be?
+        Should we face off against the greater of the two opponents?
+        Type 'Y' if so or 'N to take the easy route
+        """
+        choices = ['Y', 'N']
+        type_slowly(
+            speech
+            )
+        answer = input("").upper()
+        while answer not in choices:
+            display_clear()
+            print("""
+        didn't understand that, I'll say it again""", speech)
+            answer = input("    ").upper()
+        if answer == 'Y':
+            self.hardmode = True
+        return self.hardmode
 
     def display(self):
         """
@@ -107,7 +137,7 @@ class PlayGame():
         passes guess to a check that the guess -
         has not been made before
         """
-        if len(self.array) > 0:
+        if len(self.array) > 0 and self.hardmode is True:
             new_target = self.array[0]
             self.com_row = int(new_target[0])
             self.com_col = int(new_target[-1])
@@ -156,8 +186,8 @@ class PlayGame():
 
     def create_comp_targets(self, row, col, board):
         """
-        Iterates around the successful hit 
-        made by the computer and stores targets 
+        Iterates around the successful hit
+        made by the computer and stores targets
         for future turns
         """
         check_list = ['.', chr(128369), chr(9410)]
