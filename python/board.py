@@ -16,7 +16,7 @@ class CreateBoard():
     def __init__(self):
         self.ships = [4, chr(8517), 3, chr(8486), 3, chr(8492), 2, chr(8497)]
         self.number_of_ships = int(len(self.ships)/2)
-        self.board_size = 5
+        self.board_size = 8
         self.length = None
         self.ship_symbol = None
         self.ship_length_array_item = 0

@@ -35,20 +35,19 @@ class Intro():
                 To skip the intro type 'S' then the return key
             """
         )
-        answer = input("   ").upper()
+        answer = input("    ").upper()
         while answer not in answers:
             display_clear()
             print(art.ASCII_OPENING_PAGE)
             type_slowly(
                 """
-                \n
                     Lets try that again
                     Ready to play? Type 'P' then return
                     To see the rules type 'R' then return
                     To skip the intro type 'S' then the return key
                 """
             )
-            answer = input("   ").upper()
+            answer = input("    ").upper()
         if answer == 'P':
             display_clear()
             print("\n")
@@ -120,29 +119,25 @@ class Intro():
         time.sleep(1)
         type_slowly(
             """
-            \n
-            Hello there.
-            Welcome aboard, our first mate has been kidnapped.
-            To make things worse between us and them is a fleet of pirate ships
-            We could use every available able hand in the coming battle.
-            Will you help us rescue them?
-            Type 'Y' to help or 'N' to return to the safety of the main menu.
-            \n
-            """
+        Hello there.
+        Welcome aboard, our first mate has been kidnapped.
+        To make things worse between us and them is a fleet of pirate ships
+        We could use every available able hand in the coming battle.
+        Will you help us rescue them?
+        Type 'Y' to help or 'N' to return to the safety of the main menu.
+        """
             )
-        self.answer = input("            ").upper()
+        self.answer = input(" ").upper()
         while self.answer not in answers:
             display_clear()
             type_slowly(
                 """
-                \n
-                        I'm sorry, I can't make sense of what you said....
-                        Could you try again?
-                        Type 'Y' to join us, 'N' to return to the main menu
-                \n
-                """
+            I'm sorry, I can't make sense of what you said....
+            Could you try again?
+            Type 'Y' to join us, 'N' to return to the main menu
+            """
             )
-            self.answer = input("    ").upper()
+            self.answer = input(" ").upper()
         if self.answer == "Y":
             display_clear()
             self.collect_username()
@@ -158,7 +153,7 @@ class Intro():
         print(art.ASCII_BATTLE)
         time.sleep(0.8)
         print(art.ASCII_SHIPS)
-        input("    Hit any key to continue \n")
+        input("Hit any key to continue \n")
         display_clear()
 
     def rules(self):
@@ -199,7 +194,7 @@ class Intro():
         despite the fog when they blow it will show us what we're looking
         at. I can tell you what's been destroyed.
         """)
-        input("        Hit enter to return to the main menu \n")
+        input("        Hit enter to return to the main menu")
         self.opening_menu()
 
     def collect_username(self):
@@ -211,17 +206,17 @@ class Intro():
         display_clear()
         type_slowly(
             """
-            Thanks for joining the hunt, before we commence,
-            what's your name stranger?
+        Thanks for joining the hunt, before we commence,
+        what's your name stranger?
             """
         )
-        username = input("    ")
+        username = input("")
         while len(username.strip(" ")) == 0:
             display_clear()
             type_slowly(
                 """
-                ...The silent type are we? I'm going to need to know what to
-                call you so what's your name?
+        ...The silent type are we? I'm going to need to know what to
+        call you so what's your name?
                 """
                 )
             username = input("    ")
