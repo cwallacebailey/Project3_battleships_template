@@ -132,9 +132,9 @@ class Intro():
             display_clear()
             type_slowly(
                 """
-            I'm sorry, I can't make sense of what you said....
-            Could you try again?
-            Type 'Y' to join us, 'N' to return to the main menu
+        I'm sorry, I can't make sense of what you said....
+        Could you try again?
+        Type 'Y' to join us, 'N' to return to the main menu
             """
             )
             self.answer = input(" ").upper()
@@ -153,7 +153,8 @@ class Intro():
         print(art.ASCII_BATTLE)
         time.sleep(0.8)
         print(art.ASCII_SHIPS)
-        input("Hit any key to continue \n")
+        print(" "*30, "Hit any key to continue")
+        input(" "*30)
         display_clear()
 
     def rules(self):
@@ -221,7 +222,7 @@ class Intro():
         call you so what's your name?
                 """
                 )
-            username = input("    ")
+            username = input("")
         display_clear()
         type_slowly(f"            Welcome aboard {username}")
         time.sleep(1)

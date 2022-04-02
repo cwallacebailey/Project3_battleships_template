@@ -47,10 +47,14 @@ class PlayGame():
         check_list = ['1', '2', '3', '4', '5', '6', '7', '8']
         self.row = input('\n                  Enter a row between 1 and 8: ')
         while self.row not in check_list:
+            display_clear()
+            self.display()
             print(" "*17, 'Please enter a valid row \n')
             self.row = input('                  Enter a row between 1 and 8: ')
         self.col = input('                  Enter a Column between 1 and 8: ')
         while self.col not in check_list:
+            display_clear()
+            self.display()
             print(" "*17, 'Please enter a valid column\n')
             self.col = input('               Enter a Column between 1 and 8: ')
         self.row = int(self.row) - 1
@@ -110,13 +114,13 @@ class PlayGame():
         if board[row][col] != ".":
             update_board[row][col] = chr(128369)
             board[row][col] = "."
-            print("\n", " "*18, "direct hit, well done")
+            print(" "*18, "direct hit, well done")
             ShipDamage(self.computer_board, self.computer_fleet, "user")
             time.sleep(0.5)
             self.computer_guess()
         else:
             update_board[row][col] = chr(9410)
-            print("\n", " "*18, "Miss")
+            print(" "*17, "Miss")
             time.sleep(0.5)
             self.computer_guess()
 

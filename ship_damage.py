@@ -46,17 +46,21 @@ class ShipDamage():
         can only be destroyed once
         """
         if self.destroyer == 0 and chr(8517) in self.fleet:
-            print("\n            The destroyer's been destroyed")
+            print("\n                   That's taken out the destroyer")
             self.splice_fleet(self.fleet, chr(8517))
+            display_clear()
         if self.battleship == 0 and chr(8486) in self.fleet:
-            print("\n            That's the battleship gone")
+            print("\n                   That's the battleship gone")
             self.splice_fleet(self.fleet, chr(8486))
+            display_clear()
         if self.ship == 0 and chr(8492) in self.fleet:
-            print("\n            That's the battleship gone")
+            print("\n                   That's the ship gone")
             self.splice_fleet(self.fleet, chr(8492))
+            display_clear()
         if self.friggot == 0 and chr(8497) in self.fleet:
-            print("\n            That's the friggot down")
+            print("\n                   That's the friggot down")
             self.splice_fleet(self.fleet, chr(8497))
+            display_clear()
         time.sleep(1)
         self.game_result()
         return self.fleet
