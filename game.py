@@ -143,3 +143,5 @@ class PlayGame():
             print(" "*18, "They missed us!! Carry on shooting!")
             time.sleep(0.5)
             self.take_guess()
+
+print(CreateBoard().board)

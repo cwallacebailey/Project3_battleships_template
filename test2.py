@@ -1,8 +1,9 @@
 """ this module is also for testing """
 import random
 import sys
+import time
 
-board1 = [['.', '.', '.', '.', 'ℬ', 'ℬ', 'ℬ', '.'], ['.', '.', '.', '.', '.', '.', '.', '.'], ['.', 'ℱ', 'ⅅ', 'ⅅ', 'ⅅ', 'ⅅ', '.', '.'], ['.', 'ℱ', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', 'Ω', '.'], ['.', '.', '.', '.', '.', '.', 'Ω', '.'], ['.', '.', '.', '.', '.', '.', 'Ω', '.']]
+board1 = [['.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', 'Ω', 'Ω', 'Ω'], ['.', '.', '.', 'ℱ', 'ℱ', '.', '.', '.'], ['.', '.', '.', 'ⅅ', '.', '.', '.', '.'], ['.', '.', '.', 'ⅅ', '.', '.', '.', '.'], ['.', '.', '.', 'ⅅ', '.', '.', '.', '.'], ['.', '.', '.', 'ⅅ', '.', '.', '.', '.'], ['.', '.', '.', '.', 'ℬ', 'ℬ', 'ℬ', '.']]
 board_size = 8
 array = []
 
@@ -11,8 +12,15 @@ def guess(board):
     """
     Initial Guess
     """
-    row = random.randint(0, board_size**2 - 1) // board_size
-    col = random.randint(0, board_size**2 - 1) % board_size
+    print("go")
+    if len(array) > 0:
+        new_target = array[0]
+        row = int(new_target[0])
+        col = int(new_target[-1])
+        del(array[0])
+    else:
+        row = random.randint(0, board_size**2 - 1) // board_size
+        col = random.randint(0, board_size**2 - 1) % board_size
     computer_check_guess(row, col, board)
 
 
@@ -34,13 +42,12 @@ def computer_check_hit(row, col, board):
     """
     Checks if a ship is at the computer guess coordinates
     """
-    # turns += 1
     if board[row][col] != ".":
         board[row][col] = "A"
-        print(board)
+        shoot(row, col, board)
+        guess(board)
     else:
         board[row][col] = 'M'
-        print(board)
         guess(board)
 
 
@@ -48,19 +55,11 @@ def shoot(row, col, board):
     """
     picks and iterates around a successful hit
     """
-    for r in range(max(0, row-1), min(board_size, row+1)):
-        for c in range(max(0, col-1), min(board_size, col+1)):
-            if board[r][c] != '.' and board[r][c] != chr(9410):
+    for r in range(max(0, row-1), min(board_size, row+2)):
+        for c in range(max(0, col-1), min(board_size, col+2)):
+            if board[r][c] != '.' and board[r][c] != 'A' and board[r][c] != 'M':
                 coordinate = str(r) + str(c)
                 array.append(coordinate)
-
-    while len(array) != 0:
-        new_target = array[0]
-        row = int(new_target[0])
-        col = int(new_target[-1])
-        board[row][col] = "A"
-        del(array[0])
-    print(board)
     guesser(board)
 
 
@@ -80,6 +79,7 @@ def guesser(board):
             if column == chr(8497):
                 destroyer += 1
     if destroyer == 0:
+        print(board)
         sys.exit()
     else:
         guess(board)
