@@ -47,7 +47,7 @@ class PlayGame():
         will be HARD but your name will be known across the seven seas
         What will it be?
         Should we face off against the greater of the two opponents?
-        Type 'Y' if so or 'N to take the easy route
+        Type 'Y' if so or 'N to take the EASY route
         """
         choices = ['Y', 'N']
         type_slowly(
@@ -91,13 +91,13 @@ class PlayGame():
         while self.row not in check_list:
             display_clear()
             self.display()
-            print("\n", " "*17, 'Please enter a valid row \n')
+            print("\n", " "*16, 'Please enter a valid row \n')
             self.row = input('                  Enter a row between 1 and 8: ')
         self.col = input('                  Enter a Column between 1 and 8: ')
         while self.col not in check_list:
             display_clear()
             self.display()
-            print("\n", " "*17, 'Please enter a valid column\n')
+            print("\n", " "*16, 'Please enter a valid column\n')
             self.col = input('               Enter a Column between 1 and 8: ')
         self.row = int(self.row) - 1
         self.col = int(self.col) - 1

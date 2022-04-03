@@ -127,7 +127,7 @@ class Intro():
         Type 'Y' to help or 'N' to return to the safety of the main menu.
         """
             )
-        self.answer = input(" ").upper()
+        self.answer = input("").upper()
         while self.answer not in answers:
             display_clear()
             type_slowly(
@@ -137,7 +137,7 @@ class Intro():
         Type 'Y' to join us, 'N' to return to the main menu
             """
             )
-            self.answer = input(" ").upper()
+            self.answer = input("").upper()
         if self.answer == "Y":
             display_clear()
             self.collect_username()
@@ -188,13 +188,15 @@ class Intro():
 
         It could be a good or bad thing but our fleets are equal
         we both have:
-            a Destroyer   - 4 coordinates in length
-            a Battleship  - 3 coordinates in length
-            an Omega ship - also 3 coordinates in length
-            a Friggot     - 2 coordinates in length
+            a Destroyer   - 4 coordinates in length, looks like a D
+            a Battleship  - 3 coordinates in length, looks like a B
+            an Omega ship - 3 coordinates in length, looks like Ω
+            a Friggot     - 2 coordinates in length, looks like an F
         hitting all the ships occupied coordinates will blow it up and
         despite the fog when they blow it will show us what we're looking
         at. I can tell you what's been destroyed.
+
+        To return to the menu at any point hit the "Run Program" button.
         """
         )
         input("        Hit enter to return to the main menu")
