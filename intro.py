@@ -188,10 +188,10 @@ class Intro():
 
         It could be a good or bad thing but our fleets are equal
         we both have:
-            a destroyer  - 4 coordinates in length
-            a battleship - 3 coordinates in length
-            a ship       - also 3 coordinates in length
-            a friggot    - 2 coordinates in length
+            a Destroyer   - 4 coordinates in length
+            a Battleship  - 3 coordinates in length
+            an Omega ship - also 3 coordinates in length
+            a Friggot     - 2 coordinates in length
         hitting all the ships occupied coordinates will blow it up and
         despite the fog when they blow it will show us what we're looking
         at. I can tell you what's been destroyed.

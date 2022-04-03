@@ -48,22 +48,22 @@ class ShipDamage():
         if self.destroyer == 0 and chr(8517) in self.fleet:
             print("\n                   That's taken out the destroyer")
             self.splice_fleet(self.fleet, chr(8517))
-            time.sleep(0.5)
+            time.sleep(1.5)
             display_clear()
         if self.battleship == 0 and chr(8486) in self.fleet:
-            print("\n                   That's the battleship gone")
+            print("\n                   That's the Omega ship gone")
             self.splice_fleet(self.fleet, chr(8486))
-            time.sleep(0.5)
+            time.sleep(1.5)
             display_clear()
         if self.ship == 0 and chr(8492) in self.fleet:
-            print("\n                   That's the ship gone")
+            print("\n                   That's the battleship gone")
             self.splice_fleet(self.fleet, chr(8492))
-            time.sleep(0.5)
+            time.sleep(1.5)
             display_clear()
         if self.friggot == 0 and chr(8497) in self.fleet:
             print("\n                   That's the friggot down")
             self.splice_fleet(self.fleet, chr(8497))
-            time.sleep(0.5)
+            time.sleep(1.5)
             display_clear()
         self.game_result()
         return self.fleet
@@ -86,7 +86,7 @@ class ShipDamage():
         if check == 0:
             if self.turn == "computer":
                 print("            That was our last ship!!")
-                time.sleep(0.5)
+                time.sleep(1.5)
                 display_clear()
                 print(art.ASCII_GAME)
                 time.sleep(0.5)
@@ -101,7 +101,7 @@ class ShipDamage():
 
             else:
                 print("            That was their last ship!!!")
-                time.sleep(0.5)
+                time.sleep(1.5)
                 display_clear()
                 print(art.ASCII_GAME)
                 time.sleep(0.5)
