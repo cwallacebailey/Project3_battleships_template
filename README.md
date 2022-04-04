@@ -6,9 +6,11 @@ This project is a computerised game of battleships housed in a mock terminal on 
 
 To see the finished product please follow the link below by clicking Ctrl + the link to open in a new tab: 
 
+![Battle Ships](readme_images/battle_ships.gif)
+
 [Link to Heroku - Battle Ships](https://dashboard.heroku.com/apps/project3battleships)
 
-### IMAGE TO GO HERE
+
 
 ## Table of Contents
 
@@ -110,7 +112,9 @@ The user can enter anything they like here except for spaces or no username. Thi
 
 ![Username check](readme_images/username_check.png)
 
-Once a working username is entered the user is welcomed onboard the ship and a short sequence is played saying "Lets Hunt Pirates... BATTLE SHIPS" (see the [intro sequence](<#intro-sequence>) to watch this)
+Once a working username is entered the user is welcomed onboard the ship and a short sequence is played saying "Lets Hunt Pirates... BATTLE SHIPS" (see the [intro sequence](<#intro-sequence>) or below to watch a truncated version: 
+
+![Username check](readme_images/lets_hunt_animation.gif)
 
 [return to contents](<#contents>)
 
@@ -121,19 +125,54 @@ The game has two modes, an easy mode or a hard mode and the user is invited to s
 
 ![Easy or Hard](readme_images/easy_or_hard.png)
 
-As with all selections so far upper or lower case can be used. If the user types something other than a 'y' or 'n' then they are invited to try again: 
+As with all selections so far upper or lower case can be used. If the user types something other than a 'y' or 'n' then they are invited to try again. The second time the text is printed to the terminal a "Print" is used instead of typing slowly as this is a big piece of text and watching it type out again could be frustrating: 
 
 ![Easy or Hard](readme_images/easy_hard_check.png)
 
-If the user selects 'Y' hardmode is activated (becomes True in the code). The difference between the two modes is essentially: 
+If the user selects 'Y' hardmode is activated (becomes True in the code) and the next text reads "Very Nice, we will be world famous". If easy is selected the text reads "Why risk it, lets get our first mate". 
+
+The difference between the two modes is essentially: 
 
 Easy - Each turn the computer guesses a random location regardless of whether or not it hit a target in the previous round. 
 
-Hard - The computer guesses at random until it hits a target. Once it hits a target it iterates around the hit by one space to see if other targets are there. These are added to an array and the computer targets these coordinates in the next rounds until the array length is zero afterwhich the computer returns to guessing at random until it makes another hit
+Hard - The computer guesses at random until it hits a target. Once it hits a target it iterates around the hit by one space to see if other targets are there. These are added to an array and the computer targets these coordinates in the next rounds until the array length is zero afterwhich the computer returns to guessing at random. 
 
-In order to develop the hard mode I create a simulation in which the computer tried to clear the board as quick as it could without any user input. In Easy mode for a 5x5 board this took between 23 and 25 turns. With the hardmode iteration this bacame around 12 turns. When testing the game I beat the easy mode everytime. I beat hardmode one in ten tries. 
+In order to develop the hard mode I create a simulation in which the computer tried to clear the board as quick as it could without any user input. In Easy mode for a 5x5 board this took between 23 and 25 turns. With the hardmode iteration this bacame around 12 turns. When testing the game I beat the easy mode everytime. I beat hardmode around one in ten tries. 
 
 [return to contents](<#contents>)
 
 ### Gameplay
 
+Initially the user is presented with the view below showing their ship placement and a blank board for the computer: 
+
+![Board](readme_images/board.png)
+
+The user always goes first and must enter a row, then a column. If either the row or column chosen is not between 1 and 8 they are asked to choose again. 
+
+![valid row](readme_images/valid_row.png)
+
+Once the user has chosen their first coordinate if they miss i.e. a ship is not at the coordinate they chose the text "Miss!" appears. They are then warned that the computer is taking their turn and "getting ready to shoot!!"
+
+![miss](readme_images/miss.png)
+
+The user is then told if the computer was successful in hitting any of their ships and the board is re-printed to the terminal, updated for location shot at: 
+
+![First Turn](readme_images/first_turn.png)
+
+If a miss is made then the screen is updated with an "M" in a circle to make it clearer. If a hit is made then a skull and crossbone appears over the hit. If the user makes a hit the text reads "direct hit, well done". If the computer makes a hit the text reads "One of our ships has been hit!": Note the skull and crossbone can be seen in the bottom of the screen shot below, coordinate 8, 1 
+
+![Computer hit](readme_images/computer_hit.png)
+
+If the user chooses coordinates they have already show at they are shown the warning below and asked to choose again: 
+
+![Shot before](readme_images/shot_before.png)
+
+Once a specific ship has been destroyed, be it the users or the computers that ship is named (this is outlined in the rules)
+
+![Ship Gone](readme_images/ship_gone.png)
+
+The game continues until either the user or the computer have no ships left. If the user wins they are shown a "You Win" animation before being taken back to the welcome screen. If the user loses (shown in the animation below) they are shown a "You Lose" animation: 
+
+![Ship Gone](readme_images/game_over_animation.gif)
+
+## Future Enhancements

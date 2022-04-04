@@ -44,6 +44,8 @@ class ShipDamage():
         """
         ensures that each ship
         can only be destroyed once
+        and announces if a ship has been
+        destroyed
         """
         if self.destroyer == 0 and chr(8517) in self.fleet:
             print("\n                   That's taken out the destroyer")
@@ -85,7 +87,7 @@ class ShipDamage():
         check = self.destroyer + self.battleship + self.ship + self.friggot
         if check == 0:
             if self.turn == "computer":
-                print("            That was our last ship!!")
+                print(" "*20, "That was our last ship!!")
                 time.sleep(1.5)
                 display_clear()
                 print(art.ASCII_GAME)
@@ -100,7 +102,7 @@ class ShipDamage():
                 Intro()
 
             else:
-                print("            That was their last ship!!!")
+                print(" "*20, "That was their last ship!!!")
                 time.sleep(1.5)
                 display_clear()
                 print(art.ASCII_GAME)
