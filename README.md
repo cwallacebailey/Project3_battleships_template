@@ -75,6 +75,14 @@ In order to create a story line to add intrigue to the game I employed ASCII art
 
 ![Ship Animation](readme_images/intro_sequence.gif)
 
+The user is given the option to return to the main menu from this point. The user can use upper or lowercase letters to coninue or to return to the main menu (this could be to double check the rules before playing)
+
+![Continue](readme_images/continue.png)
+
+If the user enters something other than 'y' or 'n' the screen refreshes and they see the below
+
+![Continue](readme_images/continue_error.png)
+
 [return to contents](<#contents>)
 
 ### Rules
@@ -83,8 +91,49 @@ Accessed by typing 'R' the rules are two pages which add to the backstory of the
 
 Page 1: 
 
-![rules](readme_images/rules.png)
+![rules pg 1](readme_images/rules.png)
 
 Page 2: 
 
-![rules](readme_images/rules2.png)
+![rules pg 2](readme_images/rules2.png)
+
+[return to contents](<#contents>)
+
+### Username Entry including error handling
+---
+
+Whether the user selects 'P' or 'S' at the welcome screen they are either taken indirectly (via 'P') or directly (via 'S') to the username entry screen. To help the user feel engaged the app asks for their name. 
+
+![Username Entry](readme_images/username_entry.png)
+
+The user can enter anything they like here except for spaces or no username. This is done by stripping the input of all spaces and counting the length of the name left behind. If length of the input less spaces is zero they will see the screen below: 
+
+![Username check](readme_images/username_check.png)
+
+Once a working username is entered the user is welcomed onboard the ship and a short sequence is played saying "Lets Hunt Pirates... BATTLE SHIPS" (see the [intro sequence](<#intro-sequence>) to watch this)
+
+[return to contents](<#contents>)
+
+### Easy or Hard Mode
+---
+
+The game has two modes, an easy mode or a hard mode and the user is invited to select which they would like in a text where easy and hard are capitalised to make it obvious what the text is asking the user to choose. 
+
+![Easy or Hard](readme_images/easy_or_hard.png)
+
+As with all selections so far upper or lower case can be used. If the user types something other than a 'y' or 'n' then they are invited to try again: 
+
+![Easy or Hard](readme_images/easy_hard_check.png)
+
+If the user selects 'Y' hardmode is activated (becomes True in the code). The difference between the two modes is essentially: 
+
+Easy - Each turn the computer guesses a random location regardless of whether or not it hit a target in the previous round. 
+
+Hard - The computer guesses at random until it hits a target. Once it hits a target it iterates around the hit by one space to see if other targets are there. These are added to an array and the computer targets these coordinates in the next rounds until the array length is zero afterwhich the computer returns to guessing at random until it makes another hit
+
+In order to develop the hard mode I create a simulation in which the computer tried to clear the board as quick as it could without any user input. In Easy mode for a 5x5 board this took between 23 and 25 turns. With the hardmode iteration this bacame around 12 turns. When testing the game I beat the easy mode everytime. I beat hardmode one in ten tries. 
+
+[return to contents](<#contents>)
+
+### Gameplay
+
