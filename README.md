@@ -10,8 +10,6 @@ To see the finished product please follow the link below by clicking Ctrl + the 
 
 [Link to Heroku - Battle Ships](https://dashboard.heroku.com/apps/project3battleships)
 
-
-
 ## Table of Contents 
 
 * [Overview](#overview)
@@ -242,6 +240,8 @@ I required a number of libraries for this project:
 As Python is an object orientated language I used a class based system thorughout the game. These are outlined below: 
 
 Intro
+
+
 CreateBoard 
 BoardFormat
 PlayGame
@@ -274,3 +274,46 @@ Note: it is vital that the buildpacks are in the correct order. If node.js is li
 14. From the bottom of the deploy page you should select your the desired deployment type  
         * By clicking "Enable Automatic Deploys" the project will update automatically push updates from GitBash to Github.  
         * Select the 'main' branch for deployment from the drop-down menu and click the Deploy Branch button for manual deployment. 
+
+## Credits
+--- 
+
+### Display Clear
+The code to clear the console came from this link 
+
+http://www.delftstack.com/howto/python/python-clear-console/
+
+The code was copied in its entirety and housed in the general_functions.py file of my code. 
+
+### Type Slowly
+The code to give the type slowly effect in the terminal was taken from stack overflow. Link available below: 
+
+https://stackoverflow.com/a/10390877
+
+This code is housed in the general_functions.py and is called in multiple classes
+
+### Time.Sleep()
+
+The code to allow the game to pause to give the reader time to see what was happening is available below: 
+
+https://www.programiz.com/python-programming/time/sleep
+
+This is used throughout the code in multiple classes
+
+### Check an array's content
+
+The ship placement required an array to be made for temporary coordinates. While these were checked again another array that contained coordinates of tiles already in place. The idea to use the 'any' function to compare two arrays was taken from the link below: 
+
+https://stackoverflow.com/questions/36190533/python-check-if-an-numpy-array-contains-any-element-of-another-array
+
+### ascii artwork
+
+The link below was used to generate all ascii words. 
+
+https://fsymbols.com/generators/carty/
+
+### Side by Side Board
+
+While it may not look it the hardest point of this project for me was getting the boards to appear side by side. While the enumarate/ zip made up part of the code institute coursework and seemed to be the obvious approach the "' '.join" was a 1am success thats discovery meant I could finally go to bed. Information on the ".join" can be found below. 
+
+https://www.w3schools.com/python/ref_string_join.asp

@@ -198,7 +198,7 @@ class PlayGame():
         """
         Iterates around the successful hit
         made by the computer and stores targets
-        for future turns
+        for future turns. Only active in hard mode
         """
         check_list = ['.', chr(128369), chr(9410)]
         for r in range(max(0, row-1), min(self.board_size, row+2)):

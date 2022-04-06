@@ -21,7 +21,7 @@ class CreateBoard():
         self.ship_symbol = None
         self.ship_length_array_item = 0
         self.ship_display_array_item = 1
-        self.array = []
+        self.ships_placed = []
         self.build = self.build_board()
 
     def build_board(self):
@@ -77,9 +77,9 @@ class CreateBoard():
 
     def coordinate_check(self, row, col, direction):
         """
-        checks if coordinates that the ship would require
+        Puts the coordinates that the ship would require
         to be placed based on direction and length
-        are already in use
+        are in a temp array to be checked if already used
         """
         temp_coordinates = []
         i = 1
@@ -99,11 +99,11 @@ class CreateBoard():
         already contain a ship
         """
         # https://stackoverflow.com/questions/36190533/python-check-if-an-numpy-array-contains-any-element-of-another-array
-        if any(i in temp_coordinates for i in self.array):
+        if any(i in temp_coordinates for i in self.ships_placed):
             self.coordinate()
         else:
             for i in temp_coordinates:
-                self.array.append(i)
+                self.ships_placed.append(i)
             for i in temp_coordinates:
                 row = int(i[:1])
                 col = int(i[1:])
@@ -137,6 +137,7 @@ class BoardFormat():
     def board_formatting(self, board_one, board_two):
         """
         Converts the board given into a usable appearance
+        showing them side by side
         """
         print("\n"*3, " "*17, "1 2 3 4 5 6 7 8     "*2)
         print(" "*19 + "— "*8 + " "*4 + "— "*8)
