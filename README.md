@@ -12,7 +12,27 @@ To see the finished product please follow the link below by clicking Ctrl + the 
 
 
 
-## Table of Contents
+## Table of Contents 
+
+* [Overview](#overview)
+* [Design](#design)
+    * [User Needs](#user-needs)
+    * [Aims](#aims)
+    * [Plan of Attack](###plan-of-attack)
+* [Features](#features)
+    * [General Features](#general-features)
+    * [Welcome Screen](#welcome-screen)
+    * [Intro Sequence](#intro-sequence)
+    * [Rules](#rules)
+    * [Username Entry](#username-entry-including-error-handling)
+    * [Easy or Hard Mode](#easy-or-hard-mode)
+    * [Gameplay](#gameplay)
+    * [Future Enhancements](#future-enhancements)
+* [Libraries](#libraries)
+* [The Game & Its Code](#the-game-&-its-code)
+* [Playing the Game](#playing-the-game)
+* [Deployment to Heroku](#deployment-to-heroku)
+
 
 ## Design
 ---
@@ -176,3 +196,81 @@ The game continues until either the user or the computer have no ships left. If 
 ![Ship Gone](readme_images/game_over_animation.gif)
 
 ## Future Enhancements
+
+The project could be improved with the following: 
+
+### User Ship Placement
+
+Allowing the user to place their own ships would improve the game however as time was my limiting factor for this project I had a choice between improving the AI intelligence or adding ship placement. As the ship placement would be an extension of code already present (i.e. checks to ensure placement tiles did not contain a ship already nor were they off the board combined with inputs from the user for starting location and direction) I felt that I had developed the skills to do this and there was greater value to my own learning in developing enhanced computer AI. 
+
+### Multiplayer
+
+Allowing a user to play another player would improve the game though this would require two screens or two computers accessing the app or a period where one player would have to leave the computer while the other player took their turn otherwise each player would simply see where their opponents ships were placed. 
+
+### Enhanced cut scenes
+
+Once ships were destroyed it would be simple to cut away and use ASCII artwork to say "destroyer destroyed" or "Battleship Down" in big lettering. This would add excitement to the game and could be done fairly simply. 
+
+### Improved background
+
+Decorating the screen with a background which would ideally react to the gameplay would be really exciting addition to the project. 
+
+### Improved board appearance
+
+The board is fairly simple and black and white. Although clear it would improve the overall asthetic to have colours on and around the board. 
+
+## Libraries
+
+I required a number of libraries for this project: 
+
+### random
+* random.randint is used for ship placement and for the computer to make initial coordinate guesses whilst on easy and hard mode.
+
+### os
+* This import was essential for the display clear command and prevents the app having to create a scroll bar which the user could then scroll up on to old data. This kept the game clean. 
+
+### sys
+* "This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter". In this project it was used to allow the slow typing effect seen throughout the intro scenes
+
+### time
+* This was used to allow temporary pauses between game events for example a hit or a miss from the computer. It gives the user time to comprehend what is going on on the screen. 
+
+## The Game & Its Code
+
+### Classes Used
+
+As Python is an object orientated language I used a class based system thorughout the game. These are outlined below: 
+
+Intro
+CreateBoard 
+BoardFormat
+PlayGame
+ShipDamage
+
+
+## Playing the Game
+This project was only possible due to the [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template). This created/ simulated a terminal within the web browser and as such the game is not designed to be played locally. It can be but the sizing of the game is designed to be on a screen 80 charachters across. For best results play this using the following link: [Battle Ships](https://dashboard.heroku.com/apps/project3battleships)
+
+## Deployment to Heroku:
+  
+This project was deployed to [Heroku](https://www.heroku.com) by using procedure outlined below:    
+  
+1. Log in to Heroku if you have an account or create a new account if required.
+2. click the button labeled "New" visible on the dashboard in the top right corner of the screen.
+3. Select "Create new app" from the dropdown
+4. Here you should enter a unique app name.
+5. If the name is original a green tick will appear.
+6. Select the region you are in. 
+7. Hit the Create app button.
+8. You will now be on the project Deployment tab. Navigate to the settings, a separate tab, and scroll down to the "Config Vars" section. 
+9. Here click the button labelled "Reveal Config Vars", the "key" as port should be 8000. Enter this and then hit the "add" button.
+10. Next head to the "buildpacks" section still on the settings page and click "add buildpack", select "Python," and then add "Node.js". Save these changes before you prceed. 
+
+Note: it is vital that the buildpacks are in the correct order. If node.js is listed first under this section, you can click and drag it to be below Python.
+
+11. Now navigate to the "Deploy" tab.
+12. Once there select Github as the deployment method and Confirm you want to connect to GitHub.
+13. Search and select the repository name and hit the connect button next to the intended repository.
+14. From the bottom of the deploy page you should select your the desired deployment type  
+        * By clicking "Enable Automatic Deploys" the project will update automatically push updates from GitBash to Github.  
+        * Select the 'main' branch for deployment from the drop-down menu and click the Deploy Branch button for manual deployment. 

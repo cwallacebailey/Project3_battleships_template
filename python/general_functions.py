@@ -15,10 +15,10 @@ def display_clear():
         command = 'cls'
     os.system(command)
 
-# https://stackoverflow.com/a/10390877
-
 
 def type_slowly(text):
+    # This is the URL that this code was found on:
+    # https://stackoverflow.com/a/10390877
     """
     allows text to by typed out slowly
     instead of all appearing at once
