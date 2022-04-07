@@ -235,6 +235,10 @@ I required a number of libraries for this project:
 
 ## The Game & Its Code
 
+## Game Map
+
+![Flow Chart](readme_images/game_flow_chart.gif)
+
 ### Classes Used
 
 As Python is an object orientated language I used a class based system thorughout the game. These are outlined below: 
