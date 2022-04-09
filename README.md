@@ -27,7 +27,8 @@ To see the finished product please follow the link below by clicking Ctrl + the 
     * [Gameplay](#gameplay)
     * [Future Enhancements](#future-enhancements)
 * [Libraries](#libraries)
-* [The Game & Its Code](#the-game-&-its-code)
+* [Game Map](#game-map)
+* [Testing](#testing)
 * [Playing the Game](#playing-the-game)
 * [Deployment to Heroku](#deployment-to-heroku)
 
@@ -247,7 +248,7 @@ I required a number of libraries for this project:
 
 ## Testing
 
-See the testing file [here](#TESTING.MD) for all testing performed. 
+See the testing file [here](TESTING.md) for all testing performed. 
 
 ## Playing the Game
 This project was only possible due to the [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template). This created/ simulated a terminal within the web browser and as such the game is not designed to be played locally. It can be but the sizing of the game is designed to be on a screen 80 charachters across. For best results play this using the following link: [Battle Ships](https://dashboard.heroku.com/apps/project3battleships)
