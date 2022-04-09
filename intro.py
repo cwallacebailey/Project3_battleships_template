@@ -61,8 +61,7 @@ class Intro():
             self.collect_username()
         else:
             self.rules()
-        return "complete"  # added to remove error "assigning result of a
-        # function call where the function has no return value"
+        return answer
 
     def ship_animation(self):
         """

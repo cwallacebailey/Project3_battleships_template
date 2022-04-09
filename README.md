@@ -2,7 +2,7 @@
 
 ## Overview 
 ---
-This project is a computerised game of battleships housed in a mock terminal on Heroku. The project has been an opportunity to gain knowledge and experience in an object orientated language, here python, and use classes, methods and nested 'if' statements along with ASCII artwork to create an enjoyable bug free playable game where a user faces the computer with two difficulty settings
+This project is a computerised game of battleships housed in a mock terminal on Heroku. The project has been an opportunity to gain knowledge and experience in an object-orientated language, here python, and, use classes, methods and nested 'if' statements along with ASCII artwork to create an enjoyable bug-free playable game where a user faces the computer with two difficulty settings
 
 To see the finished product please follow the link below by clicking Ctrl + the link to open in a new tab: 
 
@@ -48,7 +48,7 @@ Users will want to:
 * Have access to a variety of difficulty settings 
 
 ### Aims
-As a result of the above the aims are straight forward
+As a result of the above, the aims are straightforward
 * Make the purpose of the game clear from the offset
 * Create a rules page that can be accessed by the user
 * Produce a storyline for the user to follow with imagery
@@ -57,18 +57,18 @@ As a result of the above the aims are straight forward
 
 ### Plan of Attack
 
-In order to achieve the above aims the app will: 
+To achieve the above aims the app will: 
 * Provide a welcome screen with ASCII artwork to make it clear what the game is
 * The welcome screen will provide access to the game rules
 * Use ASCII Art to create an engaging intro
 * Ensure user inputs are usable by the code and that no bugs are present through testing
-* Create more than one difficulty setting by allowing the ocmputer to guess more intelligently 
+* Create more than one difficulty setting by allowing the computer to guess more intelligently 
 
 ## Features
 
 ### General Features
 ---
-In order to give the intro sequences a more smooth feel I employed a "slow type" function used throughout many of the other Python scripts. In places this replaced the print function to make the user feel more like they were watching an event unfold or part of a conversation. 
+To give the intro sequences a more smooth feel, I employed a "slow type" function used throughout many of the other Python scripts. In places, this replaced the print function to make the user feel more like they were watching an event unfold or part of a conversation. 
 
 ![Slow Type](readme_images/slow_type_animation.gif)
 
@@ -84,7 +84,7 @@ The welcome screen gives the user three options:
 
 ![Welcome Screen](readme_images/welcome_screen.png)
 
-The code behind this allows the user to type either lower or uppercase letters to continue. If nothing or a letter which is not 'P', 'R' or 'S' is typed the screen refreshes and says "Let's try that again"
+The code behind this allows the user to type either lower or uppercase letters to continue. If nothing or a letter that is not 'P', 'R' or, 'S' is typed the screen refreshes and says "Let's try that again"
 
 ![Welcome Screen error](readme_images/welcome_error.png)
 
@@ -92,11 +92,11 @@ The code behind this allows the user to type either lower or uppercase letters t
 
 ### Intro Sequence
 ---
-In order to create a story line to add intrigue to the game I employed ASCII artwork along with the slow type effect noted above to help the user feel engaged with the app. This sequence is accessed if the user selects the "Ready to play" option from the welcome screen by typing 'P'
+To create a story line to add intrigue to the game, I employed ASCII artwork along with the slow type effect noted above to help the user feel engaged with the app. This sequence is accessed if the user selects the "Ready to play" option from the welcome screen by typing 'P'
 
 ![Ship Animation](readme_images/intro_sequence.gif)
 
-The user is given the option to return to the main menu from this point. The user can use upper or lowercase letters to coninue or to return to the main menu (this could be to double check the rules before playing)
+The user is given the option to return to the main menu from this point. The user can use upper or lowercase letters to continue or to return to the main menu (this could be to double-check the rules before playing)
 
 ![Continue](readme_images/continue.png)
 
@@ -108,7 +108,7 @@ If the user enters something other than 'y' or 'n' the screen refreshes and they
 
 ### Rules
 ---
-Accessed by typing 'R' the rules are two pages which add to the backstory of the game and explain what the user needs to know to play. They also justify why you can't see the enemy ships and why the ships are placed randomly throughout the board. The user is told to 'hit enter to continue', in reality any key can be pressed. 
+Accessed by typing 'R' the rules are two pages that add to the backstory of the game and explain what the user needs to know to play. They also justify why you can't see the enemy ships and why the ships are placed randomly throughout the board. The user is told to 'hit enter to continue', in reality any key can be pressed. 
 
 Page 1: 
 
@@ -140,7 +140,7 @@ Once a working username is entered the user is welcomed onboard the ship and a s
 ### Easy or Hard Mode
 ---
 
-The game has two modes, an easy mode or a hard mode and the user is invited to select which they would like in a text where easy and hard are capitalised to make it obvious what the text is asking the user to choose. 
+The game has two modes, an easy mode or a hard mode and the user is invited to select which they would like in a text where easy or hard are capitalised to make it obvious what the text is asking the user to choose. 
 
 ![Easy or Hard](readme_images/easy_or_hard.png)
 
@@ -154,15 +154,15 @@ The difference between the two modes is essentially:
 
 Easy - Each turn the computer guesses a random location regardless of whether or not it hit a target in the previous round. 
 
-Hard - The computer guesses at random until it hits a target. Once it hits a target it iterates around the hit by one space to see if other targets are there. These are added to an array and the computer targets these coordinates in the next rounds until the array length is zero afterwhich the computer returns to guessing at random. 
+Hard - The computer guesses at random until it hits a target. Once it hits a target it iterates around the hit by one space to see if other targets are there. These are added to an array and the computer targets these coordinates in the next rounds until the array length is zero after which the computer returns to guessing at random. 
 
-In order to develop the hard mode I create a simulation in which the computer tried to clear the board as quick as it could without any user input. In Easy mode for a 5x5 board this took between 23 and 25 turns. With the hardmode iteration this bacame around 12 turns. When testing the game I beat the easy mode everytime. I beat hardmode around one in ten tries. 
+To develop the hard mode, I create a simulation in which the computer tried to clear the board as fast as it could without any user input. In Easy mode for a 5x5 board, this took between 23 and 25 turns. With the hard-mode iteration this became around 12 turns. When testing the game I beat the easy mode every time. I beat hard-mode around one in ten tries. 
 
 [return to contents](<#contents>)
 
 ### Gameplay
 
-Initially the user is presented with the view below showing their ship placement and a blank board for the computer: 
+Initially, the user is presented with the view below showing their ship placement and a blank board for the computer: 
 
 ![Board](readme_images/board.png)
 
@@ -178,11 +178,11 @@ The user is then told if the computer was successful in hitting any of their shi
 
 ![First Turn](readme_images/first_turn.png)
 
-If a miss is made then the screen is updated with an "M" in a circle to make it clearer. If a hit is made then a skull and crossbone appears over the hit. If the user makes a hit the text reads "direct hit, well done". If the computer makes a hit the text reads "One of our ships has been hit!": Note the skull and crossbone can be seen in the bottom of the screen shot below, coordinate 8, 1 
+If a miss is made then the screen is updated with an "M" in a circle to make it clearer. If a hit is made then a skull and cross-bone appears over the hit. If the user makes a hit the text reads "direct hit, well done". If the computer makes a hit the text reads "One of our ships has been hit!": Note the skull and cross-bone can be seen in the bottom of the screenshot below, coordinate 8, 1 
 
 ![Computer hit](readme_images/computer_hit.png)
 
-If the user chooses coordinates they have already show at they are shown the warning below and asked to choose again: 
+If the user chooses coordinates they have already used previously they are shown the warning below and asked to choose again: 
 
 ![Shot before](readme_images/shot_before.png)
 
@@ -190,7 +190,7 @@ Once a specific ship has been destroyed, be it the users or the computers that s
 
 ![Ship Gone](readme_images/ship_gone.png)
 
-The game continues until either the user or the computer have no ships left. If the user wins they are shown a "You Win" animation before being taken back to the welcome screen. If the user loses (shown in the animation below) they are shown a "You Lose" animation: 
+The game will continue until either the user or the computer have no ships left. If the user wins they are shown a "You Win" animation before being taken back to the welcome screen. If the user loses (shown in the animation below) they are shown a "You Lose" animation: 
 
 ![Ship Gone](readme_images/game_over_animation.gif)
 
@@ -214,16 +214,16 @@ Once ships were destroyed it would be simple to cut away and use ASCII artwork t
 
 ### Improved background
 
-Decorating the screen with a background which would ideally react to the gameplay would be really exciting addition to the project. 
+Decorating the screen with a background that would ideally react to the gameplay would be really exciting addition to the project. 
 
 ### Improved board appearance
 
-The board is fairly simple and black and white. Although clear it would improve the overall asthetic to have colours on and around the board. 
+The board is fairly simple and black and white. Although clear it would improve the overall aesthetic to have colours on and around the board. 
 
 [return to contents](<#contents>)
 
 ### Adding option to leave the game
-I could have added an option to leave the game after each turn however as there is a large "run program" button available at all times on the app I have not included this as the text coming up each turn slows down the gameplay and bacame annoying very quickly. 
+I could have added an option to leave the game after each turn however as there is a large "run program" button available at all times on the app I have not included this as the text coming up each turn slows down the gameplay and became annoying very quickly. 
 
 ## Libraries
 
@@ -233,7 +233,7 @@ I required a number of libraries for this project:
 * random.randint is used for ship placement and for the computer to make initial coordinate guesses whilst on easy and hard mode.
 
 ### os
-* This import was essential for the display clear command and prevents the app having to create a scroll bar which the user could then scroll up on to old data. This kept the game clean. 
+* This import was essential for the display clear command and prevents the app from having to create a scroll bar which the user could then scroll up on to old data. This kept the game clean. 
 
 ### sys
 * "This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter". In this project it was used to allow the slow typing effect seen throughout the intro scenes
@@ -254,13 +254,13 @@ I required a number of libraries for this project:
 See the testing file [here](TESTING.md) for all testing performed. 
 
 ## Playing the Game
-This project was only possible due to the [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template). This created/ simulated a terminal within the web browser and as such the game is not designed to be played locally. It can be but the sizing of the game is designed to be on a screen 80 charachters across. For best results play this using the following link: [Battle Ships](https://dashboard.heroku.com/apps/project3battleships)
+This project was only possible due to the [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template). This created/ simulated a terminal within the web browser and as such the game is not designed to be played locally. It can be but the sizing of the game is designed to be on a screen 80 characters across. For best results play this using the following link: [Battle Ships](https://dashboard.heroku.com/apps/project3battleships)
 
 [return to contents](<#contents>)
 
 ## Deployment to Heroku:
   
-This project was deployed to [Heroku](https://www.heroku.com) by using procedure outlined below:    
+This project was deployed to [Heroku](https://www.heroku.com) by using the procedure outlined below:    
   
 1. Log in to Heroku if you have an account or create a new account if required.
 2. click the button labeled "New" visible on the dashboard in the top right corner of the screen.
@@ -271,7 +271,7 @@ This project was deployed to [Heroku](https://www.heroku.com) by using procedure
 7. Hit the Create app button.
 8. You will now be on the project Deployment tab. Navigate to the settings, a separate tab, and scroll down to the "Config Vars" section. 
 9. Here click the button labelled "Reveal Config Vars", the "key" as port should be 8000. Enter this and then hit the "add" button.
-10. Next head to the "buildpacks" section still on the settings page and click "add buildpack", select "Python," and then add "Node.js". Save these changes before you prceed. 
+10. Next head to the "buildpacks" section still on the settings page and click "add buildpack", select "Python," and then add "Node.js". Save these changes before you proceed. 
 
 Note: it is vital that the buildpacks are in the correct order. If node.js is listed first under this section, you can click and drag it to be below Python.
 
@@ -329,8 +329,8 @@ https://www.w3schools.com/python/ref_string_join.asp
 
 ### favicon image
 
-The skull and cross bone was taken from the link below which is under the creative commons license. I have not altered the image in anyway. 
+The skull and cross bone was taken from the link below which is under the creative commons license. I have not altered the image in any way. 
 
-https://commons.wikimedia.org/wiki/File:Skull_%26_Crossbones_BW.png
+https://commons.wikimedia.org/wiki/File:Skull_%26_cross-bones_BW.png
 
 [return to contents](<#contents>)
