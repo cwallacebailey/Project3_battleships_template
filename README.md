@@ -193,6 +193,8 @@ The game continues until either the user or the computer have no ships left. If 
 
 ![Ship Gone](readme_images/game_over_animation.gif)
 
+[return to contents](<#contents>)
+
 ## Future Enhancements
 
 The project could be improved with the following: 
@@ -217,6 +219,8 @@ Decorating the screen with a background which would ideally react to the gamepla
 
 The board is fairly simple and black and white. Although clear it would improve the overall asthetic to have colours on and around the board. 
 
+[return to contents](<#contents>)
+
 ## Libraries
 
 I required a number of libraries for this project: 
@@ -233,27 +237,22 @@ I required a number of libraries for this project:
 ### time
 * This was used to allow temporary pauses between game events for example a hit or a miss from the computer. It gives the user time to comprehend what is going on on the screen. 
 
-## The Game & Its Code
+[return to contents](<#contents>)
 
 ## Game Map
 
-![Flow Chart](readme_images/game_flow_chart.gif)
+![Flow Chart](readme_images/game_flow_chart.png)
 
-### Classes Used
+[return to contents](<#contents>)
 
-As Python is an object orientated language I used a class based system thorughout the game. These are outlined below: 
+## Testing
 
-Intro
-
-
-CreateBoard 
-BoardFormat
-PlayGame
-ShipDamage
-
+See the testing file [here](#TESTING.MD) for all testing performed. 
 
 ## Playing the Game
 This project was only possible due to the [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template). This created/ simulated a terminal within the web browser and as such the game is not designed to be played locally. It can be but the sizing of the game is designed to be on a screen 80 charachters across. For best results play this using the following link: [Battle Ships](https://dashboard.heroku.com/apps/project3battleships)
+
+[return to contents](<#contents>)
 
 ## Deployment to Heroku:
   
@@ -278,6 +277,8 @@ Note: it is vital that the buildpacks are in the correct order. If node.js is li
 14. From the bottom of the deploy page you should select your the desired deployment type  
         * By clicking "Enable Automatic Deploys" the project will update automatically push updates from GitBash to Github.  
         * Select the 'main' branch for deployment from the drop-down menu and click the Deploy Branch button for manual deployment. 
+
+[return to contents](<#contents>)
 
 ## Credits
 --- 
@@ -321,3 +322,5 @@ https://fsymbols.com/generators/carty/
 While it may not look it the hardest point of this project for me was getting the boards to appear side by side. While the enumarate/ zip made up part of the code institute coursework and seemed to be the obvious approach the "' '.join" was a 1am success thats discovery meant I could finally go to bed. Information on the ".join" can be found below. 
 
 https://www.w3schools.com/python/ref_string_join.asp
+
+[return to contents](<#contents>)

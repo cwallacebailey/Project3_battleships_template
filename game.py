@@ -1,5 +1,5 @@
 """
-Main game file
+Main game play module
 """
 
 import random
