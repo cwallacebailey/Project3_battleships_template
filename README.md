@@ -222,6 +222,9 @@ The board is fairly simple and black and white. Although clear it would improve 
 
 [return to contents](<#contents>)
 
+### Adding option to leave the game
+I could have added an option to leave the game after each turn however as there is a large "run program" button available at all times on the app I have not included this as the text coming up each turn slows down the gameplay and bacame annoying very quickly. 
+
 ## Libraries
 
 I required a number of libraries for this project: 
@@ -323,5 +326,11 @@ https://fsymbols.com/generators/carty/
 While it may not look it the hardest point of this project for me was getting the boards to appear side by side. While the enumarate/ zip made up part of the code institute coursework and seemed to be the obvious approach the "' '.join" was a 1am success thats discovery meant I could finally go to bed. Information on the ".join" can be found below. 
 
 https://www.w3schools.com/python/ref_string_join.asp
+
+### favicon image
+
+The skull and cross bone was taken from the link below which is under the creative commons license. I have not altered the image in anyway. 
+
+https://commons.wikimedia.org/wiki/File:Skull_%26_Crossbones_BW.png
 
 [return to contents](<#contents>)
