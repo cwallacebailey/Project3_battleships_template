@@ -31,7 +31,7 @@ class PlayGame():
         self.com_row = None
         self.com_col = None
         self.hardmode = False
-        self.array = []
+        self.array = []  # this is used to successive targets in hardmode
         self.hard_mode_activate = self.hard_mode()
         self.take_user_guess = self.take_guess()
 
@@ -201,8 +201,8 @@ class PlayGame():
         for future turns. Only active in hard mode
         """
         check_list = ['.', chr(128369), chr(9410)]
-        for r in range(max(0, row-1), min(self.board_size, row+2)):
-            for c in range(max(0, col-1), min(self.board_size, col+2)):
-                if board[r][c] not in check_list:
-                    coordinate = str(r) + str(c)
+        for rows in range(max(0, row-1), min(self.board_size, row+2)):
+            for cols in range(max(0, col-1), min(self.board_size, col+2)):
+                if board[rows][cols] not in check_list:
+                    coordinate = str(rows) + str(cols)
                     self.array.append(coordinate)
