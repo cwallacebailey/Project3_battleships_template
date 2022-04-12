@@ -8,9 +8,9 @@ To see the finished product please follow the link below by clicking Ctrl + the 
 
 ![Battle Ships](readme_images/battle_ships.gif)
 
-[Link to Heroku - Battle Ships](https://dashboard.heroku.com/apps/project3battleships)
+[Link to Heroku - Battle Ships](https://project3battleships.herokuapp.com/)
 
-## Table of Contents 
+## Contents 
 
 * [Overview](#overview)
 * [Design](#design)
@@ -31,6 +31,7 @@ To see the finished product please follow the link below by clicking Ctrl + the 
 * [Testing](#testing)
 * [Playing the Game](#playing-the-game)
 * [Deployment to Heroku](#deployment-to-heroku)
+* [Credits](#credits)
 
 
 ## Design
