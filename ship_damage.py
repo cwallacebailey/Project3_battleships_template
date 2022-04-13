@@ -99,6 +99,7 @@ class ShipDamage():
                 time.sleep(0.5)
                 print(art.ASCII_LOSE)
                 time.sleep(3)
+                print(art.ASCII_SHIP_1)
                 display_clear()
                 print("""
 
@@ -123,6 +124,7 @@ class ShipDamage():
                 print(art.ASCII_WIN)
                 time.sleep(3)
                 display_clear()
+                print(art.ASCII_SHIP_1)
                 print("""
 
 
