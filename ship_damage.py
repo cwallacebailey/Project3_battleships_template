@@ -99,9 +99,12 @@ class ShipDamage():
                 time.sleep(0.5)
                 print(art.ASCII_LOSE)
                 time.sleep(3)
+                display_clear()
                 print("""
-                Well done, you're a hero
-                to play again hit "run program" below
+
+
+                To try and rescue the first mate again
+                hit "run program" below
                 """)
                 time.sleep(10)
                 sys.exit()
@@ -119,9 +122,12 @@ class ShipDamage():
                 time.sleep(0.5)
                 print(art.ASCII_WIN)
                 time.sleep(3)
+                display_clear()
                 print("""
-                To try and rescue the first mate again
-                hit "run program" below
+
+
+                Well done, you're a hero.
+                To play again hit "run program" below
                 """)
                 time.sleep(10)
                 sys.exit()
