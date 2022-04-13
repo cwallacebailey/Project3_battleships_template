@@ -1,6 +1,7 @@
 """ module to see update ship damage """
 
 import time
+import sys
 import python.ascii as art
 from python.general_functions import display_clear
 
@@ -102,6 +103,8 @@ class ShipDamage():
                 Well done, you're a hero
                 to play again hit "run program" below
                 """)
+                time.sleep(10)
+                sys.exit()
 
             else:
                 print(" "*20, "That was their last ship!!!")
@@ -120,6 +123,8 @@ class ShipDamage():
                 To try and rescue the first mate again
                 hit "run program" below
                 """)
+                time.sleep(10)
+                sys.exit()
 
         else:
             return self.fleet
