@@ -23,7 +23,7 @@ The PEP8 Online system [Link](http://pep8online.com/) was used to check all pyth
 
 ## HTML Validator
 
-The HTML is part of the code institute template but I ran it through the HTML validator just in case. As you would expect it came back with no errors
+The HTML is part of the code institute template but I ran changes I made through the HTML validator just in case. As you would expect it came back with no errors
 
 ![HTML Validator](readme_images/html_validator.png)
 
