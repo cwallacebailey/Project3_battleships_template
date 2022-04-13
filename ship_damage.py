@@ -3,7 +3,6 @@
 import time
 import python.ascii as art
 from python.general_functions import display_clear
-from intro import Intro
 
 
 class ShipDamage():
@@ -99,7 +98,10 @@ class ShipDamage():
                 time.sleep(0.5)
                 print(art.ASCII_LOSE)
                 time.sleep(3)
-                Intro()
+                print("""
+                Well done, you're a hero
+                to play again hit "run program" below
+                """)
 
             else:
                 print(" "*20, "That was their last ship!!!")
@@ -114,7 +116,10 @@ class ShipDamage():
                 time.sleep(0.5)
                 print(art.ASCII_WIN)
                 time.sleep(3)
-                Intro()
+                print("""
+                To try and rescue the first mate again
+                hit "run program" below
+                """)
 
         else:
             return self.fleet

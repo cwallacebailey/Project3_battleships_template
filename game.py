@@ -31,7 +31,7 @@ class PlayGame():
         self.com_row = None
         self.com_col = None
         self.hardmode = False
-        self.array = []  # this is used to successive targets in hardmode
+        self.array = []  # this is used to store successive targets in hardmode
         self.hard_mode_activate = self.hard_mode()
         self.take_user_guess = self.take_guess()
 

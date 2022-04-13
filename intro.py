@@ -19,7 +19,7 @@ class Intro():
         self.answer = None
         self.opening = self.opening_menu()
 
-    def opening_menu(self):  # https://fsymbols.com/generators/carty/
+    def opening_menu(self):
         """
         opening menu displayed with
         ship and game title. User
